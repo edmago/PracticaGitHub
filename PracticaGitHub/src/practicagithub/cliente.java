@@ -27,6 +27,20 @@ public class cliente {
         nombreCliente = nombre;
         indiceCli++;
     }    
+    public int getListClientesById(cliente vecCliente [],long id)
+    {
+        for(int i=0 ; i<indiceCli; i++)
+        {
+            if(vecCliente[i].idCliente==id)
+            {
+                System.out.println("Cliente existe");
+                return 1;
+                }
+                }
+        return 0;
+
+    }
+    
     public Long getClienteId()
     {
         return (idCliente);

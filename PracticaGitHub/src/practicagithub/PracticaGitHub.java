@@ -14,15 +14,17 @@ import java.io.InputStreamReader;
 public class PracticaGitHub {
 
     public static cliente[] clienteGlobal;
+    public static tipoCuenta[] tipoC;
    /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
         clienteGlobal = new cliente[200];
+        tipoC = new tipoCuenta[200];
         
         String opcionmod = "0";
-        
+        int indiceTipoC = 0;
         InputStreamReader  lector_entrada = new InputStreamReader(System.in);
         BufferedReader  buffer = new BufferedReader(lector_entrada);
         
@@ -60,8 +62,16 @@ public class PracticaGitHub {
                             {
                                 case 1:     
                                 {
+                                    InputStreamReader  lector_entrada2 = new InputStreamReader(System.in);
+                                    BufferedReader  buffer2 = new BufferedReader(lector_entrada2);                  
+                                    System.out.println("\n\033[34mIngrese la descripción del Tipo de Cuenta: "); 
+                                    String descripcion = buffer2.readLine();
+                                    tipoC[indiceTipoC]= new tipoCuenta();
+                                    tipoCuenta.indice = indiceTipoC;
+                                    tipoC[indiceTipoC].addTipoCuenta((indiceTipoC+1),descripcion);
+                                    indiceTipoC++;
                                     System.out.println("\n\033[31mTipo de Cuenta Insertado");
-                                    break;                                                                             
+                                    break;                                                                                                                 
                                 }
                                 case 2:
                                 {
@@ -172,10 +182,11 @@ public class PracticaGitHub {
                                 }                                
                                 case 6:
                                 {
+                                    tipoCuenta.getListCuentas(tipoC);
                                     break;
                                 }
                                 case 7:
-                                {
+                                {                                    
                                     break;
                                 }
                                 case 8:
