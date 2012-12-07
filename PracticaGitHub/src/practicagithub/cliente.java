@@ -27,4 +27,13 @@ public class cliente {
         nombreCliente = nombre;
         indiceCli++;
     }    
+    public Long getClienteId()
+    {
+        return (idCliente);
+    }
+
+    public String getClienteNom()
+    {
+        return (nombreCliente);
+    }
 }

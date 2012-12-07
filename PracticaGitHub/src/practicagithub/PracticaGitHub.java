@@ -157,6 +157,17 @@ public class PracticaGitHub {
                                 }
                                 case 3:
                                 {
+                                    int i;
+                                    int impreso = 0;
+                                    for (i = 0; i < cliente.indiceCli ; i++)
+                                    {
+                                        if (impreso == 0)
+                                        {
+                                           System.out.println("Id           Cliente");   
+                                           impreso = 1;
+                                        }
+                                        System.out.println(clienteGlobal[i].getClienteId() + "                  " + clienteGlobal[i].getClienteNom());
+                                    }
                                     break;
                                 }                                
                                 case 6:
