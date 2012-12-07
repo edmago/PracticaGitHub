@@ -13,12 +13,17 @@ import java.io.InputStreamReader;
  */
 public class PracticaGitHub {
 
+    public static cliente[] clienteGlobal;
    /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        String opcionmod="0",opcionmenu1="0";
+        clienteGlobal = new cliente[200];
+        int indiceCliente = 0;
+        
+        String opcionmod="0",opcionMenu1="0";
+        
         try{
             while(!opcionmod.equals("4"))
             {
@@ -36,7 +41,7 @@ public class PracticaGitHub {
                 {
                     case 1:
                     {
-                       while(!opcionmenu1.equals("5"))
+                       while(!opcionMenu1.equals("5"))
                         {    
                             System.out.println("\n\n        \033[31mMódulo Administrativo\n");
                             System.out.println("        \033[31m1.- \033[39mAgregar Tipo de Cuenta");
@@ -45,11 +50,12 @@ public class PracticaGitHub {
                             System.out.println("        \033[31m4.- \033[39mCrear cuenta Bancaria");
                             System.out.println("        \033[31m5.- \033[39mRegresar al menú anterior");
                             System.out.println("        \033[31m6.- \033[39mSalir");
-                            
+                            InputStreamReader  lector_entrada2 = new InputStreamReader(System.in);
+                            BufferedReader  buffer2 = new BufferedReader(lector_entrada2);
                             System.out.println("\n\033[34mIngrese el número de la opción del menú que desea utilizar: ");
-                            opcionmenu1 = buffer.readLine();
+                            opcionMenu1 = buffer2.readLine();
                          
-                            switch(Integer.parseInt(opcionmenu1))
+                            switch(Integer.parseInt(opcionMenu1))
                             {
                                 case 1:     
                                 {
