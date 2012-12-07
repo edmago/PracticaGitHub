@@ -16,6 +16,7 @@ public class PracticaGitHub {
     public static cliente[] clienteGlobal;
     public static tipoCuenta[] tipoC;
     public static cuentaBancaria[] cuentaB;
+    public static tipoOperacion [] tipoO;
    /**
      * @param args the command line arguments
      */
@@ -24,11 +25,13 @@ public class PracticaGitHub {
         clienteGlobal = new cliente[200];
         tipoC = new tipoCuenta[200];
         cuentaB = new cuentaBancaria[500];
+        tipoO =new tipoOperacion[200];
         
         String nroCuenta = "C000-";
         String opcionmod = "0";
         int indiceTipoC = 0;
         int indiceCuentaB = 0;
+        int indiceTipoO = 0;
          
         InputStreamReader  lector_entrada = new InputStreamReader(System.in);
         BufferedReader  buffer = new BufferedReader(lector_entrada);
@@ -80,7 +83,21 @@ public class PracticaGitHub {
                                 }
                                 case 2:
                                 {
-                                    System.out.println("\n\033[31mTipo de Operadción Insertado");
+                                    InputStreamReader  lector_entrada2 = new InputStreamReader(System.in);
+                                    BufferedReader  buffer2 = new BufferedReader(lector_entrada2);      
+                                    System.out.println("\n      \033[31m***-----Opciones para Operaciones-----***");
+                                    System.out.println("\033[31m        1.- \033[39mRetiro");
+                                    System.out.println("\033[31m        2.- \033[39mDepósito");
+                                    System.out.println("\033[31m        3.- \033[39mRetiro por Cajero");
+                                    System.out.println("\n\033[34mSeleccione la Opción para el Tipo de Operación a crear: ");
+                                    String tipoop = buffer2.readLine();
+                                    System.out.println("\n\033[34mIntroduzca la descripción del Tipo de Operación: ");                     
+                                    String descrip = buffer2.readLine();
+                                    tipoO[indiceTipoO]= new tipoOperacion();                                                
+                                    tipoOperacion.indiceTO = indiceTipoO;
+                                    tipoO[indiceTipoO].addTipoOperacion((indiceTipoO+1),Integer.parseInt(tipoop),descrip);
+                                    indiceTipoO++;
+                                    System.out.println("\n\033[31mTipo de Operadción Insertado");                                   
                                     break;                                                                                                                       
                                 }
                                 case 3:
