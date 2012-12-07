@@ -15,6 +15,7 @@ public class PracticaGitHub {
 
     public static cliente[] clienteGlobal;
     public static tipoCuenta[] tipoC;
+    public static cuentaBancaria[] cuentaB;
    /**
      * @param args the command line arguments
      */
@@ -22,9 +23,13 @@ public class PracticaGitHub {
         // TODO code application logic here
         clienteGlobal = new cliente[200];
         tipoC = new tipoCuenta[200];
+        cuentaB = new cuentaBancaria[500];
         
+        String nroCuenta = "C000-";
         String opcionmod = "0";
         int indiceTipoC = 0;
+        int indiceCuentaB = 0;
+         
         InputStreamReader  lector_entrada = new InputStreamReader(System.in);
         BufferedReader  buffer = new BufferedReader(lector_entrada);
         
@@ -89,6 +94,14 @@ public class PracticaGitHub {
                                 }
                                 case 4:
                                 {
+                                    InputStreamReader  lector_entrada2 = new InputStreamReader(System.in);
+                                    BufferedReader  buffer2 = new BufferedReader(lector_entrada2);                  
+                                    System.out.println("\n\033[34mIngrese el Id del Cliente: ");
+                                    nroCuenta = nroCuenta + indiceCuentaB;
+                                    int idCliente = Integer.parseInt(buffer2.readLine());
+                                    cuentaB[indiceCuentaB]= new cuentaBancaria();
+                                    cuentaB[indiceCuentaB].createCuentaBancaria((indiceCuentaB+1),nroCuenta,idCliente,clienteGlobal,tipoC);
+                                    indiceCuentaB = cuentaBancaria.indice;
                                     System.out.println("\n\033[31mCuenta bancaria registrada");
                                     break;
                                 }
@@ -121,7 +134,15 @@ public class PracticaGitHub {
                             {
                                 case 1:     
                                 {                                                                         
-                                    System.out.println("Creando Cuenta Bancaria");
+                                    InputStreamReader  lector_entrada2 = new InputStreamReader(System.in);
+                                    BufferedReader  buffer2 = new BufferedReader(lector_entrada2);                  
+                                    System.out.println("\n\033[34mIngrese el Id del Cliente: ");
+                                    nroCuenta = nroCuenta + indiceCuentaB;
+                                    int idCliente = Integer.parseInt(buffer2.readLine());
+                                    cuentaB[indiceCuentaB]= new cuentaBancaria();
+                                    cuentaB[indiceCuentaB].createCuentaBancaria((indiceCuentaB+1),nroCuenta,idCliente,clienteGlobal,tipoC);
+                                    indiceCuentaB = cuentaBancaria.indice;
+                                    System.out.println("\n\033[31mCuenta bancaria registrada");
                                     break;
                                 }
                                 case 2:
