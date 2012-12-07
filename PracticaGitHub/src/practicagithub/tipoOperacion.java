@@ -21,5 +21,28 @@ public class tipoOperacion {
         descripcion = descrip;
         indiceTO++;
     }    
+    static public void getListTipoOperacion(tipoOperacion tipoO[])
+    {
+        String msjs[]  = new String[3];
+        String msj="", tipodesc="";
+        System.out.print("\n");
+        String tit = "Listado de Tipo de Operaciones\n";
+        System.out.format("\033[34m%18s",tit);
+        msjs[0] = "Id";
+        msjs[1] = "Descripción";
+        msjs[2] = "Tipo\n\n";        
+        System.out.format("\033[35m%10s%18s%18s",msjs[0],msjs[1],msjs[2]);
+        for(int i=0; i < indiceTO; i++)
+        {
+            if(tipoO[i].tipo==1)                
+            {    tipodesc="Retiro";}
+            if(tipoO[i].tipo==1)
+            {    tipodesc="Depósito";}
+            if(tipoO[i].tipo==1)
+            {    tipodesc="Retiro Cajero";}
+            msj = String.format("%10s%18s",tipoO[i].idTipoOperacion, tipoO[i].descripcion,tipodesc);
+            System.out.println(msj);
+        }        
+    }
     
 }

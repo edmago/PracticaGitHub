@@ -217,7 +217,12 @@ public class PracticaGitHub {
                                         System.out.println(clienteGlobal[i].getClienteId() + "                  " + clienteGlobal[i].getClienteNom());
                                     }
                                     break;
-                                }                                
+                                }   
+                                case 5:
+                                {
+                                    tipoOperacion.getListTipoOperacion(tipoO);
+                                    break;                                    
+                                }
                                 case 6:
                                 {
                                     tipoCuenta.getListCuentas(tipoC);
