@@ -69,6 +69,12 @@ public class PracticaGitHub {
                                 }
                                 case 3:
                                 {                                                                                                            
+                                    InputStreamReader lector_entrada3 = new InputStreamReader(System.in);
+                                    BufferedReader buffer3 = new BufferedReader(lector_entrada3);
+                                    System.out.println("Ingrese el Id del Cliente: ");
+                                    long idCliente = Long.parseLong(buffer3.readLine());
+                                    clienteGlobal[cliente.indiceCli]= new cliente();
+                                    clienteGlobal[cliente.indiceCli].createCliente(idCliente);
                                     System.out.println("Agregando Cliente");
                                     break;
                                 }
