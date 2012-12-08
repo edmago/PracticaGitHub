@@ -18,6 +18,7 @@ public class PracticaGitHub {
     public static tipoCuenta[] tipoC;
     public static cuentaBancaria[] cuentaB;
     public static tipoOperacion [] tipoO;
+    public static OperacionBancaria [] OpeBanc;
    /**
      * @param args the command line arguments
      */
@@ -27,6 +28,7 @@ public class PracticaGitHub {
         tipoC = new tipoCuenta[200];
         cuentaB = new cuentaBancaria[500];
         tipoO =new tipoOperacion[200];
+        OpeBanc = new OperacionBancaria[1000];
         
         String nroCuenta = "C000-";
         String opcionmod = "0";
