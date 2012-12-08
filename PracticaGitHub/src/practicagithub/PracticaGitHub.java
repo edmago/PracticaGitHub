@@ -5,6 +5,7 @@
 package practicagithub;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
@@ -82,22 +83,33 @@ public class PracticaGitHub {
                                     break;                                                                                                                 
                                 }
                                 case 2:
-                                {
-                                    InputStreamReader  lector_entrada2 = new InputStreamReader(System.in);
-                                    BufferedReader  buffer2 = new BufferedReader(lector_entrada2);      
-                                    System.out.println("\n      \033[31m***-----Opciones para Operaciones-----***");
-                                    System.out.println("\033[31m        1.- \033[39mRetiro");
-                                    System.out.println("\033[31m        2.- \033[39mDepósito");
-                                    System.out.println("\033[31m        3.- \033[39mRetiro por Cajero");
-                                    System.out.println("\n\033[34mSeleccione la Opción para el Tipo de Operación a crear: ");
-                                    String tipoop = buffer2.readLine();
-                                    System.out.println("\n\033[34mIntroduzca la descripción del Tipo de Operación: ");                     
-                                    String descrip = buffer2.readLine();
-                                    tipoO[indiceTipoO]= new tipoOperacion();                                                
-                                    tipoOperacion.indiceTO = indiceTipoO;
-                                    tipoO[indiceTipoO].addTipoOperacion((indiceTipoO+1),Integer.parseInt(tipoop),descrip);
-                                    indiceTipoO++;
-                                    System.out.println("\n\033[31mTipo de Operadción Insertado");                                   
+                                {    
+                                    String tipoop;
+                                    tipoop = "0";
+                                    try{ 
+                                        while(Integer.parseInt(tipoop)>3 || Integer.parseInt(tipoop)<1)
+                                        {
+
+                                            System.out.println("\n      \033[31m***-----Opciones para Operaciones-----***");
+                                            System.out.println("\033[31m        1.- \033[39mRetiro");
+                                            System.out.println("\033[31m        2.- \033[39mDepósito");
+                                            System.out.println("\033[31m        3.- \033[39mRetiro por Cajero");
+                                            System.out.println("\n\033[34mSeleccione la Opción para el Tipo de Operación a crear: ");
+                                            tipoop = buffer.readLine();                                         
+                                        }
+                                        System.out.println("\n\033[34mIntroduzca la descripción del Tipo de Operación: ");                     
+                                        String descrip = buffer.readLine();
+                                        tipoO[indiceTipoO]= new tipoOperacion();                                                
+                                        tipoOperacion.indiceTO = indiceTipoO;
+                                        tipoO[indiceTipoO].addTipoOperacion((indiceTipoO+1),Integer.parseInt(tipoop),descrip);
+                                        indiceTipoO++;
+                                        System.out.println("\n\033[31mTipo de Operadción Insertado");   
+                                    }
+                                    catch(NumberFormatException e)
+                                    {
+                                        System.out.println("\033[31mOpción de Tipo de Operación no Válida");
+                                    }
+                                                                    
                                     break;                                                                                                                       
                                 }
                                 case 3:
