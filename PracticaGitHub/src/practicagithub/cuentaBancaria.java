@@ -37,4 +37,36 @@ public class cuentaBancaria {
           this.tipo.idTipocuenta = Long.parseLong(tipoCu);
           indice++;
     }
+    
+    /**
+     *
+     * @param idCli
+     * @param vecCtas
+     */
+    public void getListCuentas (long idCli, cuentaBancaria vecCtas[])
+    {
+        int i;
+        String msjs[]  = new String[3];
+        String msj="";
+        System.out.println("Get cuentas   " + indice);
+        
+        String tit = "      Listado de Cuentas\n\n";
+        System.out.format("\033[31m%18s",tit);
+        msjs[0] = "Id";
+        msjs[1] = "Descripción";
+        System.out.format("\033[31m%10s%25s",msjs[0],msjs[1]);  
+        for (i=0 ; i < indice ; i++)
+        {
+            //System.out.println("Cliente   " + vecCtas[i].objCliente.idCliente + " -- Valor " + idCli); 
+            if( vecCtas[i].objCliente.idCliente.equals(idCli))
+             {
+                 
+                 System.out.print("\n");
+                       
+                 msj = String.format("%10s%25s",vecCtas[i].idCuentaBancaria, vecCtas[i].numeroCuenta);
+                 System.out.println(msj);
+                 
+             }
+        }
+    }
 }

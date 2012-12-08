@@ -58,4 +58,22 @@ public class tipoOperacion {
         }        
     }
     
+    static public int getTipoOp(Long idTOper, tipoOperacion tipoO[])
+    {
+        int i;   
+        for (i=0 ; i < indiceTO ; i++)
+        {
+            if (tipoO[i].idTipoOperacion.equals(idTOper))
+            {
+                return tipoO[i].tipo;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+        return 0;
+    }
+
+    
 }
