@@ -31,13 +31,16 @@ public class tipoCuenta {
         System.out.print("\n");
         String tit = "\n      \033[31mListado de Tipo de Cuentas\n";
         System.out.format("\033[34m%18s",tit);
-        msjs[0] = "Id";
-        msjs[1] = "Descripción\n\n";
+        System.out.println("   \033[31m#------------------------------#");
+        msjs[0] = "|    Id";
+        msjs[1] = "     Descripción        |\n";
         System.out.format("\033[31m%10s%18s",msjs[0],msjs[1]);
+        System.out.println("   \033[31m|------------------------------|");
         for(int i=0; i < indice; i++)
-        {
-            msj = String.format("%10s%18s",tipoC[i].idTipocuenta, tipoC[i].descripcion);
+        {            
+            msj = String.format("%10s%18s",tipoC[i].idTipocuenta,tipoC[i].descripcion);            
             System.out.println(msj);
-        }        
+        }  
+        System.out.println("   \033[31m#------------------------------#");
     }
 }
