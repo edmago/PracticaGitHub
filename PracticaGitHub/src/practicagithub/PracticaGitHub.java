@@ -90,12 +90,14 @@ public class PracticaGitHub {
                                     tipoop = "0";
                                     try{ 
                                         while(Integer.parseInt(tipoop)>3 || Integer.parseInt(tipoop)<1)
-                                        {
-
-                                            System.out.println("\n      \033[31m***-----Opciones para Operaciones-----***");
+                                        {                                           
+                                            System.out.println("\n   \033[31m#------------------------------------------------------------#");
+                                            System.out.println("      \033[31mOpciones para Operaciones");
+                                            System.out.println("   \033[31m|------------------------------------------------------------|");                                            
                                             System.out.println("\033[31m        1.- \033[39mRetiro");
                                             System.out.println("\033[31m        2.- \033[39mDepósito");
                                             System.out.println("\033[31m        3.- \033[39mRetiro por Cajero");
+                                            System.out.println("   \033[31m#------------------------------------------------------------#");
                                             System.out.println("\n\033[34mSeleccione la Opción para el Tipo de Operación a crear: ");
                                             tipoop = buffer.readLine();                                         
                                         }
@@ -158,7 +160,7 @@ public class PracticaGitHub {
                             System.out.println("        \033[31m2.- \033[39mOperación Bancaria");   
                             System.out.println("        \033[31m3.- \033[39mRegresar al menú anterior");
                             System.out.println("        \033[31m4.- \033[39mSalir");
-                            System.out.println("\033[34mIngrese el número de la opción del menú que desea utilizar: ");
+                            System.out.println("\n\033[34mIngrese el número de la opción del menú que desea utilizar: ");
                             opcionMenu2 = buffer.readLine();                       
                             switch(Integer.parseInt(opcionMenu2))
                             {
@@ -284,7 +286,7 @@ public class PracticaGitHub {
                             System.out.println("    \033[31m6.- \033[39mListado de Tipo de Cuentas");
                             System.out.println("    \033[31m7.- \033[39mRegresar al menú anterior");
                             System.out.println("    \033[31m8.- \033[39mSalir");
-                            System.out.println("\033[34mIngrese el número del Reporte que desea visualizar: ");
+                            System.out.println("\n\033[34mIngrese el número del Reporte que desea visualizar: ");
                             opcionMenu3 = buffer.readLine();
                             switch(Integer.parseInt(opcionMenu3))
                             {
