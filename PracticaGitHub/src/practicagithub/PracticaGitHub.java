@@ -117,8 +117,7 @@ public class PracticaGitHub {
                                     System.out.println("Ingrese el Id del Cliente: ");
                                     long idCliente = Long.parseLong(buffer.readLine());
                                     clienteGlobal[cliente.indiceCli]= new cliente();
-                                    clienteGlobal[cliente.indiceCli].createCliente(idCliente);
-                                    System.out.println("Cliente agegado");
+                                    clienteGlobal[cliente.indiceCli].createCliente(clienteGlobal,idCliente);                                    
                                     break;
                                 }
                                 case 4:

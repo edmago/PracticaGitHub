@@ -22,12 +22,9 @@ public class cuentaBancaria {
     
     public void createCuentaBancaria(long idCuen, String nro, long idCli, cliente vecCliente [], tipoCuenta tipoC[]) throws IOException
     {
-      int resp = objCliente.getListClientesById(vecCliente,idCli);
-      if(resp == 0)
-      {   
+        
           vecCliente[cliente.indiceCli] = new cliente();
-          vecCliente[cliente.indiceCli].createCliente(idCli);          
-      }    
+          vecCliente[cliente.indiceCli].createCliente(vecCliente,idCli);  
           objCliente.idCliente = idCli;
           this.idCuentaBancaria = idCuen;
           this.numeroCuenta = nro;
