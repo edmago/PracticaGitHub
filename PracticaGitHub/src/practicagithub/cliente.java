@@ -15,17 +15,26 @@ import java.io.InputStreamReader;
 public class cliente {
     Long idCliente;
     String nombreCliente;
+    String claveOperacion = "0000";
     static int indiceCli = 0;
     
-    public void createCliente(long idcli) throws IOException
+    public void createCliente(cliente vecCliente [], long idcli) throws IOException
     {
         idCliente = idcli;
         InputStreamReader  lector_entrada = new InputStreamReader(System.in);
         BufferedReader  buffer = new BufferedReader(lector_entrada); 
-        System.out.println("Introduzca el nombre del Cliente: ");
-        String nombre = buffer.readLine();
-        nombreCliente = nombre;
-        indiceCli++;
+        if(getListClientesById(vecCliente,idcli)==0)
+        {
+            System.out.println("Introduzca el nombre del Cliente: ");
+            String nombre = buffer.readLine();
+            nombreCliente = nombre;
+            while(!"0000".equals(claveOperacion) && claveOperacion.length()!=4)
+            {
+             System.out.println("Introduzca clave para operaciones: ");
+             claveOperacion = buffer.readLine();
+            }
+            indiceCli++;
+        }
     }    
     public int getListClientesById(cliente vecCliente [],long id)
     {
