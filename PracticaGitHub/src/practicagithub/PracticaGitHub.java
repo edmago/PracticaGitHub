@@ -125,7 +125,7 @@ public class PracticaGitHub {
                                     InputStreamReader  lector_entrada2 = new InputStreamReader(System.in);
                                     BufferedReader  buffer2 = new BufferedReader(lector_entrada2);                  
                                     System.out.println("\n\033[34mIngrese el Id del Cliente: ");
-                                    nroCuenta = nroCuenta + indiceCuentaB;
+                                    nroCuenta = nroCuenta + (indiceCuentaB + 1);
                                     int idCliente = Integer.parseInt(buffer2.readLine());
                                     cuentaB[indiceCuentaB]= new cuentaBancaria();
                                     cuentaB[indiceCuentaB].createCuentaBancaria((indiceCuentaB+1),nroCuenta,idCliente,clienteGlobal,tipoC);
