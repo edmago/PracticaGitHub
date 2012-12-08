@@ -96,4 +96,28 @@ public class cuentaBancaria {
         }
         return 0; 
     }
+    public Long getClienteCuenta()
+    {
+        return(objCliente.idCliente);
+    }
+    
+    public Long getDescTipoCta()
+    {
+        return(tipo.idTipocuenta);
+    }
+    
+    public Date getFechaApertura()
+    {
+        return(fechaApertura);
+    }
+
+    public float getSaldo()
+    {
+        return(saldo);
+    }
+    
+    public String getNroCuenta()
+    {
+        return(numeroCuenta);
+    }
 }

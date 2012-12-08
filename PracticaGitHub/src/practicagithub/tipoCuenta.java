@@ -43,4 +43,14 @@ public class tipoCuenta {
         }  
         System.out.println("   \033[31m#------------------------------#");
     }
+    
+    public String getDescripcionTipoCta()
+    {
+        return(descripcion);    
+    }    
+    
+    public Long getIdTipocuenta()
+    {
+        return(idTipocuenta);
+    }
 }

@@ -290,6 +290,41 @@ public class PracticaGitHub {
                             {
                                 case 1:
                                 {
+                                    int i;
+                                    int impreso = 0;
+                                    String DesCuenta = "";
+                                    Long IdCliente;
+                                    InputStreamReader  lector_entrada_idCli = new InputStreamReader(System.in);
+                                    BufferedReader  buffer_idCli = new BufferedReader(lector_entrada_idCli);
+                                    System.out.println("\033[34mIngrese el Id del Cliente a Consultar: ");
+                                    IdCliente = Long.parseLong(buffer_idCli.readLine());
+                                    for (i = 0; i < cliente.indiceCli ; i++)
+                                    {
+                                       if(IdCliente.compareTo(clienteGlobal[i].getClienteId()) == 0)
+                                       {
+                                           System.out.println("Id del Cliente    : "+ clienteGlobal[i].getClienteId());
+                                           System.out.println("Nombre del Cliente: "+ clienteGlobal[i].getClienteNom());
+                                           for (int j = 0; j < cuentaBancaria.indice; j++)
+                                           {
+                                               if (IdCliente.compareTo(cuentaB[j].getClienteCuenta()) == 0)
+                                               {
+                                                   if (impreso == 0)
+                                                   {
+                                                      System.out.println("Nro de Cuenta        Tipo Cuenta        Fecha Apertura        Saldo");   
+                                                      impreso = 1;
+                                                   }
+                                                   for(int k=0;k<tipoCuenta.indice ;k++)
+                                                   {
+                                                       if(cuentaB[j].getDescTipoCta().compareTo(tipoC[k].getIdTipocuenta())==0)
+                                                       {
+                                                           DesCuenta = tipoC[k].getDescripcionTipoCta();
+                                                       }
+                                                   }
+                                                   System.out.println(cuentaB[j].getNroCuenta() + "        " + DesCuenta + "        " +cuentaB[j].getFechaApertura() + "        " + cuentaB[j].getSaldo());
+                                               }
+                                           }
+                                       }
+                                    }
                                     break;
                                 }
                                 case 3:
