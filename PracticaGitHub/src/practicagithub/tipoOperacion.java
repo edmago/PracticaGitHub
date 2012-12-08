@@ -15,7 +15,7 @@ public class tipoOperacion {
     static int indiceTO = 0;
     
     public void addTipoOperacion(long id, int tipoop, String descrip)
-    {              
+    {                     
         tipo = tipoop;         
         idTipoOperacion = id;
         descripcion = descrip;
@@ -47,30 +47,26 @@ public class tipoOperacion {
     static public void getTipoOperacion(tipoOperacion tipoO[])
     {
         String msjs[]  = new String[3];
-        String msj="", tipodesc="";
+        String msj;
         System.out.print("\n");
         String tit = "      Tipo de Operaciones\n\n";
         System.out.format("\033[31m%18s",tit);        
         for(int i=0; i < indiceTO; i++)
         {            
-            msj = String.format("%10s%25s",(i+1), tipoO[i].descripcion);
+            msj = String.format("%10s%25s",tipoO[i].idTipoOperacion, tipoO[i].descripcion);
             System.out.println(msj);
         }        
     }
     
     static public int getTipoOp(Long idTOper, tipoOperacion tipoO[])
     {
-        int i;   
+        int i;         
         for (i=0 ; i < indiceTO ; i++)
-        {
+        {           
             if (tipoO[i].idTipoOperacion.equals(idTOper))
-            {
+            {               
                 return tipoO[i].tipo;
-            }
-            else
-            {
-                return 0;
-            }
+            }          
         }
         return 0;
     }

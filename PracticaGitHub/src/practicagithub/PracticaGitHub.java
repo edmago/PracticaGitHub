@@ -28,8 +28,7 @@ public class PracticaGitHub {
         tipoC = new tipoCuenta[200];
         cuentaB = new cuentaBancaria[500];
         tipoO =new tipoOperacion[200];
-        OpeBanc = new operacionBancaria[1000];
-        
+        OpeBanc = new operacionBancaria[1000];        
         String nroCuenta = "C000-";
         String opcionmod = "0";
         int indiceTipoC = 0;
@@ -106,7 +105,7 @@ public class PracticaGitHub {
                                         tipoOperacion.indiceTO = indiceTipoO;
                                         tipoO[indiceTipoO].addTipoOperacion((indiceTipoO+1),Integer.parseInt(tipoop),descrip);
                                         indiceTipoO++;
-                                        System.out.println("\n\033[31mTipo de Operadción Insertado");   
+                                        System.out.println("\n\033[31mTipo de Operación Insertado");   
                                     }
                                     catch(NumberFormatException e)
                                     {
@@ -179,7 +178,7 @@ public class PracticaGitHub {
                                 case 2:
                                 {
                                     System.out.println("\n\033[34mIngrese el Id del Cliente: ");
-                                    int idCliente = Integer.parseInt(buffer.readLine());
+                                    String idCliente = buffer.readLine();
                                     System.out.println("\n\033[34mIngrese la Clave de Operaciones Bancarias: ");
                                     String clave = buffer.readLine();
                                     int i, cli=-1;
@@ -187,9 +186,8 @@ public class PracticaGitHub {
                                     int tipoOpB;
                                     for (i = 0; i < cliente.indiceCli ; i++)
                                     {
-                                        if(clienteGlobal[i].getClienteId()==idCliente)
-                                        {
-                                            System.out.println("Clave "+clienteGlobal[i].claveOperacion+"----"+clave);
+                                        if(clienteGlobal[i].getClienteId()==Integer.parseInt(idCliente))
+                                        {                                            
                                             if(clienteGlobal[i].claveOperacion.equals(clave))
                                             {
                                                 bandclav = 1;                                               
@@ -210,7 +208,7 @@ public class PracticaGitHub {
                                     }
                                     
                                     cuentaB[indiceCuentaB]= new cuentaBancaria();
-                                    cuentaB[cuentaBancaria.indice].getListCuentas (idCliente, cuentaB);
+                                    cuentaB[cuentaBancaria.indice].getListCuentas (Long.parseLong(idCliente), cuentaB);
                                     System.out.println("\n\033[34mSeleccione el Id de la Cuenta Bancaria a Utilizar: ");
                                     String cuenta = buffer.readLine();
                                     
@@ -219,31 +217,41 @@ public class PracticaGitHub {
                                     String opB;
                                     opB = buffer.readLine();         
                                     
-                                    
+                                    System.out.println("\n\033[34mIngrese el monto de la Operación a realizar: ");
+                                    String monto = buffer.readLine();
                                     tipoOpB = tipoOperacion.getTipoOp(Long.parseLong(opB), tipoO);
+                                    System.out.println("tipoOpB: "+tipoOpB);
                                     switch (tipoOpB)
                                     {
                                         case 0:
                                         {
                                             System.out.println("Tipo de Operacion No Valido");
+                                            break;
                                         }
                                         case 1:
-                                        {
-                                            System.out.append("Tipo Retiro");
-                                            //operacionBancaria.createOperacionBancaria(cli, clave, opB, Long idCuen, float monto);
+                                        {                                            
+                                            //Tipo Retiro
+                                            OpeBanc[indiceOpeBanc] = new operacionBancaria();
+                                            OpeBanc[indiceOpeBanc].createOperacionBancaria((indiceOpeBanc+1), Long.parseLong(idCliente), clave, tipoOpB, Long.parseLong(cuenta), Float.parseFloat(monto), cuentaB);
+                                            break;
                                         }
                                         case 2:
                                         {
                                             //Tipo  Deposito
-                                            System.out.append("Tipo  Deposito");
+                                            OpeBanc[indiceOpeBanc] = new operacionBancaria();
+                                            OpeBanc[indiceOpeBanc].createOperacionBancaria((indiceOpeBanc+1), Long.parseLong(idCliente), clave, tipoOpB, Long.parseLong(cuenta), Float.parseFloat(monto), cuentaB);
+                                            break;
+                                            //System.out.println("Tipo  Deposito");
                                         }
                                         case 3:
                                         {
                                             //Tipo Retiro Cajero
-                                            System.out.append("Tipo Retiro Cajero");
+                                            OpeBanc[indiceOpeBanc] = new operacionBancaria();
+                                            OpeBanc[indiceOpeBanc].createOperacionBancaria((indiceOpeBanc+1), Long.parseLong(idCliente), clave, tipoOpB, Long.parseLong(cuenta), Float.parseFloat(monto), cuentaB);
+                                            break;
+                                            //System.out.println("Tipo Retiro Cajero");
                                         }
-
-                                        System.out.println("Operacion Bancaria");
+                                        //System.out.println("Operacion Bancaria");
                                     }
 
                                     break; 

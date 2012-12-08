@@ -18,19 +18,35 @@ public class operacionBancaria {
     tipoOperacion  tipo  = new tipoOperacion();
     float   montoOp;
     static int indiceOb = 0;        
-    /*public void createOperacionBancaria(Long idCli, String clave, Long tipoOp, Long idCuen, float monto)
+    public void createOperacionBancaria(long idOper, Long idCli, String clave, int tipoOpB, Long idCuen, float monto, cuentaBancaria cuentaB[])
     {
-        int chk =0;
-        chk = cuenta.checkSaldo(monto, idCli, idCuen);
-        if (chk == 1)
+        float chk;
+        int oper=0;
+        if(tipoOpB==1 || tipoOpB==3)
+        {
+            chk = cuenta.checkSaldo(monto, idCuen, cuentaB);
+            if(chk>0)
+            {    
+               System.out.println("Monto"+(monto*(-1)));
+                oper=cuenta.actSaldo((monto*(-1)), idCuen, cuentaB);
+            }
+            else
+            {
+                System.out.println("Saldo Insuficiente");
+            }
+        }   
+        if(tipoOpB==2)
+        {
+            oper=cuenta.actSaldo(monto, idCuen, cuentaB);
+            chk =cuenta.checkSaldo(monto, idCuen, cuentaB);
+            System.out.println("Saldo "+chk);
+        }
+        if(oper==1)
         {
             this.claveOperacion = clave;
-            this.idOperacion = indiceOb + 1;
+            this.idOperacion = idOper;
             indiceOb ++;
-            cuenta.actSaldo(monto, idCli, idCuen);
-        }
-
-      
-    }*/
+        }                  
+    }
     
 }

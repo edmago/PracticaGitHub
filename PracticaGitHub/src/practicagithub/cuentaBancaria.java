@@ -18,7 +18,7 @@ public class cuentaBancaria {
     tipoCuenta tipo = new tipoCuenta();
     cliente objCliente = new cliente();
     static int indice = 0;
-    long saldo;
+    float saldo;
     
     public void createCuentaBancaria(long idCuen, String nro, long idCli, cliente vecCliente [], tipoCuenta tipoC[]) throws IOException
     {
@@ -68,5 +68,32 @@ public class cuentaBancaria {
                  
              }
         }
+    }
+    
+    public float checkSaldo(float monto, long idCuen, cuentaBancaria cuentaB[])           
+    {
+        for(int i=0;i<indice;i++)
+        {
+           if(cuentaB[i].idCuentaBancaria==idCuen && cuentaB[i].saldo>monto)
+           {
+               return cuentaB[i].saldo;
+           }          
+        }
+        return 0;
+    }
+    public int actSaldo(float monto, Long idCuen, cuentaBancaria cuentaB[])
+    {
+        for(int i=0;i<indice;i++)
+        {
+           System.out.println("Entro"+cuentaB[i].idCuentaBancaria+"  "+idCuen);
+           if(cuentaB[i].idCuentaBancaria==idCuen)
+           {
+               System.out.println("Entro"+cuentaB[i].saldo+"monto"+monto);
+               cuentaB[i].saldo=cuentaB[i].saldo+monto;
+               System.out.println("Entro"+cuentaB[i].saldo);
+               return 1;
+           }          
+        }
+        return 0; 
     }
 }
