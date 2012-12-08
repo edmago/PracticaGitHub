@@ -48,5 +48,21 @@ public class operacionBancaria {
             indiceOb ++;
         }                  
     }
+
+    public void retiroCajero()
+    {
+        String msjs[]  = new String[2];
+        String msj;
+        System.out.print("\n");
+        String tit = "\n      \033[31mRetiro por Cajero\n" + "        Selecciones el Monto a Retirar";
+        System.out.format("\033[34m%18s",tit);
+        System.out.println("   \033[31m#--------------------------------#");
+        msjs[0] = "|    1.-  50         2.- 100    |\n";
+        msjs[1] = "|    3.- 200         4.- 300    |\n";
+        msjs[2] = "|    5.- 400         6.- 500    |\n";
+        System.out.format("\033[31m%10s%18s",msjs[0],msjs[1]);
+        System.out.println("   \033[31m|------------------------------|");
+        
+    }
     
 }
