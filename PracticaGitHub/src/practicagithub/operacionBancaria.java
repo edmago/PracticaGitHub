@@ -17,10 +17,8 @@ public class operacionBancaria {
     cuentaBancaria cuenta = new cuentaBancaria();
     tipoOperacion  tipo  = new tipoOperacion();
     float   montoOp;
-    static int indiceOb = 0;
-    
-    
-    public void createOperacionBancaria(Long idCli, String clave, Long tipoOp, Long idCuen, float monto)
+    static int indiceOb = 0;        
+    /*public void createOperacionBancaria(Long idCli, String clave, Long tipoOp, Long idCuen, float monto)
     {
         int chk =0;
         chk = cuenta.checkSaldo(monto, idCli, idCuen);
@@ -32,7 +30,7 @@ public class operacionBancaria {
             cuenta.actSaldo(monto, idCli, idCuen);
         }
 
-        
-    }
+      
+    }*/
     
 }

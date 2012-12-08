@@ -44,5 +44,18 @@ public class tipoOperacion {
             System.out.println(msj);
         }        
     }
+    static public void getTipoOperacion(tipoOperacion tipoO[])
+    {
+        String msjs[]  = new String[3];
+        String msj="", tipodesc="";
+        System.out.print("\n");
+        String tit = "      Tipo de Operaciones\n\n";
+        System.out.format("\033[31m%18s",tit);        
+        for(int i=0; i < indiceTO; i++)
+        {            
+            msj = String.format("%10s%25s",(i+1), tipoO[i].descripcion);
+            System.out.println(msj);
+        }        
+    }
     
 }

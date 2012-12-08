@@ -18,7 +18,7 @@ public class PracticaGitHub {
     public static tipoCuenta[] tipoC;
     public static cuentaBancaria[] cuentaB;
     public static tipoOperacion [] tipoO;
-    public static OperacionBancaria [] OpeBanc;
+    public static operacionBancaria [] OpeBanc;
    /**
      * @param args the command line arguments
      */
@@ -28,13 +28,14 @@ public class PracticaGitHub {
         tipoC = new tipoCuenta[200];
         cuentaB = new cuentaBancaria[500];
         tipoO =new tipoOperacion[200];
-        OpeBanc = new OperacionBancaria[1000];
+        OpeBanc = new operacionBancaria[1000];
         
         String nroCuenta = "C000-";
         String opcionmod = "0";
         int indiceTipoC = 0;
         int indiceCuentaB = 0;
         int indiceTipoO = 0;
+        int indiceOpeBanc = 0;
          
         InputStreamReader  lector_entrada = new InputStreamReader(System.in);
         BufferedReader  buffer = new BufferedReader(lector_entrada);
@@ -177,6 +178,38 @@ public class PracticaGitHub {
                                 }
                                 case 2:
                                 {
+                                    System.out.println("\n\033[34mIngrese el Id del Cliente: ");
+                                    int idCliente = Integer.parseInt(buffer.readLine());
+                                    System.out.println("\n\033[34mIngrese la Clave de Operaciones Bancarias: ");
+                                    String clave = buffer.readLine();
+                                    int i, cli=-1;
+                                    int bandclav=0;
+                                    for (i = 0; i < cliente.indiceCli ; i++)
+                                    {
+                                        if(clienteGlobal[i].getClienteId()==idCliente)
+                                        {
+                                            System.out.println("Clave "+clienteGlobal[i].claveOperacion+"----"+clave);
+                                            if(clienteGlobal[i].claveOperacion.equals(clave))
+                                            {
+                                                bandclav = 1;                                               
+                                            }    
+                                            cli= i;
+                                        }                                       
+                                    }
+                                    if(cli==-1)
+                                    {
+                                        System.out.println("Cliente no Existe");
+                                        break;
+                                    }    
+                                    if(bandclav==0)
+                                    {
+                                        System.out.println("Clave de Operaciones Incorrecta");
+                                        break;
+                                    }
+                                    tipoOperacion.getTipoOperacion(tipoO);
+                                    System.out.println("\n\033[34mIngrese Tipo de Operación Bancaria a realizar: ");
+                                    String opB;
+                                    opB = buffer.readLine();
                                     System.out.println("Operacion Bancaria");
                                     break; 
                                 }    
