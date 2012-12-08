@@ -15,7 +15,7 @@ import java.io.InputStreamReader;
 public class cliente {
     Long idCliente;
     String nombreCliente;
-    String claveOperacion = "0000";
+    String claveOperacion = "";
     static int indiceCli = 0;
     
     public void createCliente(cliente vecCliente [], long idcli) throws IOException
@@ -34,6 +34,7 @@ public class cliente {
              claveOperacion = buffer.readLine();
             }
             indiceCli++;
+            System.out.println("Cliente Agregado");
         }
     }    
     public int getListClientesById(cliente vecCliente [],long id)
