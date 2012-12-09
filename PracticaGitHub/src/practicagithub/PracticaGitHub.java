@@ -59,7 +59,6 @@ public class PracticaGitHub {
                       String opcionMenu1 = "0";  
                        while(!opcionMenu1.equals("5"))
                         {    
-                            operacionBancaria.retiroCajero();
                             System.out.println("\n\n");
                             System.out.println("\n\n        \033[31mMódulo Administrativo\n");
                             System.out.println("        \033[31m1.- \033[39mAgregar Tipo de Cuenta");
@@ -120,14 +119,23 @@ public class PracticaGitHub {
                                 }
                                 case 3:
                                 {                                                                                                            
+                                    try
+                                    {
                                     System.out.println("Ingrese el Id del Cliente: ");
                                     long idCliente = Long.parseLong(buffer.readLine());
                                     clienteGlobal[cliente.indiceCli]= new cliente();
                                     clienteGlobal[cliente.indiceCli].createCliente(clienteGlobal,idCliente);                                    
+                                    }
+                                    catch(NumberFormatException e)
+                                    {
+                                        System.out.println("        \033[31mDebe introducir un numerico");                                        
+                                    }
                                     break;
                                 }
                                 case 4:
                                 {
+                                    try
+                                    {
                                     InputStreamReader  lector_entrada2 = new InputStreamReader(System.in);
                                     BufferedReader  buffer2 = new BufferedReader(lector_entrada2);                  
                                     System.out.println("\n\033[34mIngrese el Id del Cliente: ");
@@ -136,7 +144,11 @@ public class PracticaGitHub {
                                     cuentaB[indiceCuentaB]= new cuentaBancaria();
                                     cuentaB[indiceCuentaB].createCuentaBancaria((indiceCuentaB+1),nroCuenta,idCliente,clienteGlobal,tipoC);
                                     indiceCuentaB = cuentaBancaria.indice;
-                                    System.out.println("\n\033[31mCuenta bancaria registrada");
+                                    }
+                                    catch(NumberFormatException e)
+                                    {
+                                        System.out.println("        \033[31mDebe introducir un numerico");                                        
+                                    }
                                     break;
                                 }
                                 case 5:

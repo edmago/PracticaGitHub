@@ -52,12 +52,12 @@ public class cuentaBancaria {
                       }
                    else
                       {
-                       System.out.println("Opcion incorrecta. Debe debe seleccionar un tipo del listado anterior.");  
+                       System.out.println("         \033[31mOpcion incorrecta. Debe debe seleccionar un tipo del listado anterior.");  
                       }
                  }    
             catch(NumberFormatException e)
             {
-                System.out.println("Error en la selección. Debe introducir un nemerico");
+                System.out.println("         \033[31mError en la selección. Debe introducir un numerico");
                 existe = 0;
             }
           }
