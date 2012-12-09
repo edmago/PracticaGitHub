@@ -177,9 +177,9 @@ public class PracticaGitHub {
                             System.out.println("        \033[31m4.- \033[39mSalir");
                             System.out.println("\n\033[34mIngrese el número de la opción del menú que desea utilizar: ");
                             opcionMenu2 = buffer.readLine();                       
-                            switch(Integer.parseInt(opcionMenu2))
+                            switch(Integer.parseInt(opcionMenu2)) // Modulo Clientes
                             {
-                                case 1:     
+                                case 1: // Crea Cuenta Bancaria
                                 {                                                                         
                                     InputStreamReader  lector_entrada2 = new InputStreamReader(System.in);
                                     BufferedReader  buffer2 = new BufferedReader(lector_entrada2);                  
@@ -192,7 +192,7 @@ public class PracticaGitHub {
                                     System.out.println("\n\033[31mCuenta bancaria registrada");
                                     break;
                                 }
-                                case 2:
+                                case 2: // Realiza Operacion Bancaria
                                 {
                                     System.out.println("\n\033[34mIngrese el Id del Cliente: ");
                                     String idCliente = buffer.readLine();
@@ -238,16 +238,15 @@ public class PracticaGitHub {
                                     opB = buffer.readLine();         
                                     
                                     tipoOpB = tipoOperacion.getTipoOp(Long.parseLong(opB), tipoO);                                   
-                                    switch (tipoOpB)
+                                    switch (tipoOpB) // Seleccion del Tipo de Operacion a Realizar
                                     {
                                         case 0:
                                         {
                                             System.out.println("\n\033[31mTipo de Operacion No Valido");
                                             break;
                                         }
-                                        case 1:
-                                        {                                            
-                                            //Tipo Retiro
+                                        case 1: //Tipo Retiro
+                                        {   
                                             System.out.println("\n\033[34mIngrese el monto de la Operación a realizar: ");
                                             String monto = buffer.readLine();
                                             OpeBanc[indiceOpeBanc] = new operacionBancaria();
@@ -255,9 +254,8 @@ public class PracticaGitHub {
                                             indiceOpeBanc++;
                                             break;
                                         }
-                                        case 2:
-                                        {
-                                            //Tipo  Deposito
+                                        case 2: //Tipo  Deposito
+                                        { 
                                             System.out.println("\n\033[34mIngrese el monto de la Operación a realizar: ");
                                             String monto = buffer.readLine();
                                             OpeBanc[indiceOpeBanc] = new operacionBancaria();
@@ -265,18 +263,15 @@ public class PracticaGitHub {
                                             indiceOpeBanc++;
                                             break;                                           
                                         }
-                                        case 3:
+                                        case 3: //Tipo Retiro Cajero
                                         {
-                                            //Tipo Retiro Cajero
                                             String monto;
                                             monto = operacionBancaria.retiroCajero();
                                             OpeBanc[indiceOpeBanc] = new operacionBancaria();
                                             OpeBanc[indiceOpeBanc].createOperacionBancaria((indiceOpeBanc+1), Long.parseLong(idCliente), clave, tipoOpB,opB, Long.parseLong(cuenta), Float.parseFloat(monto), cuentaB);
                                             indiceOpeBanc++;
                                             break;
-                                            //System.out.println("Tipo Retiro Cajero");
                                         }
-                                        //System.out.println("Operacion Bancaria");
                                     }
 
                                     break; 
