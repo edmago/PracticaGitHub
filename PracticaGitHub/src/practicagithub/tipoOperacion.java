@@ -28,12 +28,12 @@ public class tipoOperacion {
         System.out.print("\n");
         String tit = "      Listado de Tipo de Operaciones\n\n";
         System.out.format("\033[31m%18s",tit);
-        System.out.println("   \033[31m#------------------------------------------------------------#");
+        System.out.println("   \033[31m#-------------------------------------------------------------#");
         msjs[0] = "Id";
         msjs[1] = "Descripción";
-        msjs[2] = "Tipo\n\n";        
-        System.out.format("\033[31m%10s%25s%25s",msjs[0],msjs[1],msjs[2]);
-        System.out.println("   \033[31m|------------------------------------------------------------|");
+        msjs[2] = "   Tipo          |\n";        
+        System.out.format("\033[31m%1s%10s%25s%28s","   |",msjs[0],msjs[1],msjs[2]);
+        System.out.println("   \033[31m|-------------------------------------------------------------|");
         for(int i=0; i < indiceTO; i++)
         {
             if(tipoO[i].tipo==1)                
@@ -42,10 +42,10 @@ public class tipoOperacion {
             {    tipodesc="Depósito";}
             if(tipoO[i].tipo==3)
             {    tipodesc="Retiro Cajero";}
-            msj = String.format("%10s%25s%25s",tipoO[i].idTipoOperacion, tipoO[i].descripcion,tipodesc);
-            System.out.println(msj);
+            msj = String.format("\033[31m%10s%25s%25s",tipoO[i].idTipoOperacion, tipoO[i].descripcion,tipodesc);
+            System.out.println("   |"+msj+" |");
         }     
-        System.out.println("   \033[31m#------------------------------------------------------------#");
+        System.out.println("   \033[31m#-------------------------------------------------------------#");
     }
     static public void getTipoOperacion(tipoOperacion tipoO[])
     {
