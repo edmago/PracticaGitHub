@@ -59,6 +59,8 @@ public class PracticaGitHub {
                       String opcionMenu1 = "0";  
                        while(!opcionMenu1.equals("5"))
                         {    
+                            operacionBancaria.retiroCajero();
+                            System.out.println("\n\n");
                             System.out.println("\n\n        \033[31mMódulo Administrativo\n");
                             System.out.println("        \033[31m1.- \033[39mAgregar Tipo de Cuenta");
                             System.out.println("        \033[31m2.- \033[39mAgregar Tipo de Operación");
@@ -219,8 +221,6 @@ public class PracticaGitHub {
                                     String opB;
                                     opB = buffer.readLine();         
                                     
-                                    System.out.println("\n\033[34mIngrese el monto de la Operación a realizar: ");
-                                    String monto = buffer.readLine();
                                     tipoOpB = tipoOperacion.getTipoOp(Long.parseLong(opB), tipoO);
                                     System.out.println("tipoOpB: "+tipoOpB);
                                     switch (tipoOpB)
@@ -233,6 +233,8 @@ public class PracticaGitHub {
                                         case 1:
                                         {                                            
                                             //Tipo Retiro
+                                            System.out.println("\n\033[34mIngrese el monto de la Operación a realizar: ");
+                                            String monto = buffer.readLine();
                                             OpeBanc[indiceOpeBanc] = new operacionBancaria();
                                             OpeBanc[indiceOpeBanc].createOperacionBancaria((indiceOpeBanc+1), Long.parseLong(idCliente), clave, tipoOpB, Long.parseLong(cuenta), Float.parseFloat(monto), cuentaB);
                                             break;
@@ -240,6 +242,8 @@ public class PracticaGitHub {
                                         case 2:
                                         {
                                             //Tipo  Deposito
+                                            System.out.println("\n\033[34mIngrese el monto de la Operación a realizar: ");
+                                            String monto = buffer.readLine();
                                             OpeBanc[indiceOpeBanc] = new operacionBancaria();
                                             OpeBanc[indiceOpeBanc].createOperacionBancaria((indiceOpeBanc+1), Long.parseLong(idCliente), clave, tipoOpB, Long.parseLong(cuenta), Float.parseFloat(monto), cuentaB);
                                             break;
@@ -248,6 +252,8 @@ public class PracticaGitHub {
                                         case 3:
                                         {
                                             //Tipo Retiro Cajero
+                                            operacionBancaria.retiroCajero();
+                                            String monto = buffer.readLine();
                                             OpeBanc[indiceOpeBanc] = new operacionBancaria();
                                             OpeBanc[indiceOpeBanc].createOperacionBancaria((indiceOpeBanc+1), Long.parseLong(idCliente), clave, tipoOpB, Long.parseLong(cuenta), Float.parseFloat(monto), cuentaB);
                                             break;
