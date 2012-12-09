@@ -18,24 +18,51 @@ public class cuentaBancaria {
     tipoCuenta tipo = new tipoCuenta();
     cliente objCliente = new cliente();
     static int indice = 0;
+    int existe = 0;
     float saldo;
     
     public void createCuentaBancaria(long idCuen, String nro, long idCli, cliente vecCliente [], tipoCuenta tipoC[]) throws IOException
     {
         
-          vecCliente[cliente.indiceCli] = new cliente();
-          vecCliente[cliente.indiceCli].createCliente(vecCliente,idCli);  
-          objCliente.idCliente = idCli;
-          this.idCuentaBancaria = idCuen;
-          this.numeroCuenta = nro;
-          tipoCuenta.getListCuentas(tipoC);
-          System.out.println("\nSeleccione el Tipo de Cuenta");
-          InputStreamReader  lector_entrada = new InputStreamReader(System.in);
-          BufferedReader  buffer = new BufferedReader(lector_entrada); 
-          String tipoCu;
-          tipoCu = buffer.readLine();
-          this.tipo.idTipocuenta = Long.parseLong(tipoCu);
-          indice++;
+        if(tipoCuenta.indice==0)
+        {
+            System.out.println("\nNo existen tipos de Cuenta. Debe existir al menos un tipo para crear una Cuenta Bancaria");
+        }
+        else
+            {
+            vecCliente[cliente.indiceCli] = new cliente();
+            vecCliente[cliente.indiceCli].createCliente(vecCliente,idCli);  
+            objCliente.idCliente = idCli;
+            this.idCuentaBancaria = idCuen;
+            this.numeroCuenta = nro;
+            tipoCuenta.getListCuentas(tipoC);
+
+             while(existe==0)
+             {
+              try{
+               System.out.println("\nSeleccione el Tipo de Cuenta");
+                InputStreamReader  lector_entrada = new InputStreamReader(System.in);
+                BufferedReader  buffer = new BufferedReader(lector_entrada); 
+                String tipoCu;
+                tipoCu = buffer.readLine();
+                 existe = tipoCuenta.getTipoCuentaById(tipoC,Long.parseLong(tipoCu));    
+                   if(existe==1)
+                      {
+                       this.tipo.idTipocuenta = Long.parseLong(tipoCu);
+                      }
+                   else
+                      {
+                       System.out.println("Opcion incorrecta. Debe debe seleccionar un tipo del listado anterior.");  
+                      }
+                 }    
+            catch(NumberFormatException e)
+            {
+                System.out.println("Error en la selección. Debe introducir un nemerico");
+                existe = 0;
+            }
+          }
+        indice++;
+       }
     }
     
     /**
@@ -47,7 +74,7 @@ public class cuentaBancaria {
     {
         int i;
         String msjs[]  = new String[3];
-        String msj="";
+        String msj;
         System.out.println("Get cuentas   " + indice);
         
         String tit = "      Listado de Cuentas\n\n";

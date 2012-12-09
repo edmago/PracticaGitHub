@@ -20,6 +20,18 @@ public class tipoCuenta {
         indice++;
     }
     
+   static public int getTipoCuentaById(tipoCuenta vecTipoCuenta [],long id)
+    {
+        for(int i=0 ; i<indice; i++)
+        {
+            if(vecTipoCuenta[i].idTipocuenta==id)
+            {
+              return 1;
+              }
+        }
+        return 0;
+
+    }
     /**
      *
      * @param tipoC
