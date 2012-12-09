@@ -44,14 +44,14 @@ public class tipoCuenta {
         String tit = "\n      \033[31mListado de Tipo de Cuentas\n";
         System.out.format("\033[34m%18s",tit);
         System.out.println("   \033[31m#------------------------------#");
-        msjs[0] = "|    Id";
-        msjs[1] = "     Descripción        |\n";
+        msjs[0] = "\033[31m   |      Id";
+        msjs[1] = "\033[31m       Descripción    |\n";
         System.out.format("\033[31m%10s%18s",msjs[0],msjs[1]);
         System.out.println("   \033[31m|------------------------------|");
         for(int i=0; i < indice; i++)
         {            
-            msj = String.format("%10s%18s",tipoC[i].idTipocuenta,tipoC[i].descripcion);            
-            System.out.println(msj);
+            msj = String.format("\033[31m%8s%18s",tipoC[i].idTipocuenta,tipoC[i].descripcion);            
+            System.out.println("   |"+msj+"    |");
         }  
         System.out.println("   \033[31m#------------------------------#");
     }
