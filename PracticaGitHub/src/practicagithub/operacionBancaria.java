@@ -78,21 +78,21 @@ public class operacionBancaria {
         msjs[0] = "Fecha";
         msjs[1] = "Tipo de Operación";
         msjs[2] = "Monto";
-        System.out.print("\n");
-        System.out.println("   \033[31m#--------------------------------------------------------------------------------------------------------#");              
+        System.out.print("\n");        
         for(int i=0; i<indiceOb; i++)
         {            
             if(i==0)
             {
-                String tit = "   \033[31m|         \033[31mOperaciones Bancarias de la Cuenta "+OpeBanc[i].cuenta.idCuentaBancaria+"|\n";
+                String tit = "   \033[31m         \033[31mOperaciones Bancarias de la Cuenta "+OpeBanc[i].cuenta.idCuentaBancaria+"\n";
                 System.out.format("\033[34m%18s",tit);
                 System.out.println("   \033[31m#--------------------------------------------------------------------------------------------------------#");
                 System.out.format("\033[31m%35s%35s%35s",msjs[0],msjs[1],msjs[2]);
-                System.out.format("\n");                                
+                System.out.format("\n");  
+                System.out.println("   \033[31m|--------------------------------------------------------------------------------------------------------|");              
             }                        
             if(OpeBanc[i].cuenta.objCliente.idCliente.equals(idCli) && OpeBanc[i].cuenta.idCuentaBancaria.equals(idCuen))
             {
-                System.out.format("\033[39m%35s%35s%35s",OpeBanc[i].fechaOperacion,OpeBanc[i].tipo.idTipoOperacion,OpeBanc[i].montoOp);
+                System.out.format("   \033[39m%1s%35s%35s%32s%1s","\033[31m|\033[39m",OpeBanc[i].fechaOperacion,OpeBanc[i].tipo.idTipoOperacion,OpeBanc[i].montoOp,"\033[31m  |");
                 System.out.format("\n");                                
             }
         }

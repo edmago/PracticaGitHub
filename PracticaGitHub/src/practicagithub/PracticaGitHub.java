@@ -396,6 +396,47 @@ public class PracticaGitHub {
                                     System.out.println("   \033[31m#-----------------------------------------------------#");
                                     break;
                                 }   
+                                case 4:
+                                {
+                                    tipoCuenta.getListCuentas(tipoC);
+                                    System.out.println("\n\033[34mSeleccione el Tipo de Cuenta que desea ver:");
+                                    Long tipoCu;
+                                    String DesCuenta= "";
+                                    String NomCliente = "";
+                                    int impreso = 0;
+                                    tipoCu = Long.parseLong(buffer.readLine());                                    
+                                    for(int i=0;i<cuentaBancaria.indice;i++)
+                                    {
+                                        if(tipoCu.compareTo(cuentaB[i].getDescTipoCta())==0)
+                                        {
+                                            for(int k=0;k<tipoCuenta.indice ;k++)
+                                            {
+                                               if(cuentaB[i].getDescTipoCta().compareTo(tipoC[k].getIdTipocuenta())==0)
+                                               {
+                                                  DesCuenta = tipoC[k].getDescripcionTipoCta();
+                                               }
+                                            }
+                                            for(int j=0;j<cliente.indiceCli;j++)
+                                            {
+                                               if(cuentaB[i].getClienteCuenta().compareTo(clienteGlobal[j].getClienteId())==0)
+                                               {
+                                                  NomCliente = clienteGlobal[j].getClienteNom();
+                                               }
+                                            
+                                            }
+                                            if(impreso==0)
+                                            {
+                                                System.out.println("   \033[31m#-----------------------------------------------------------------------------------------------------------------#");
+                                                System.out.println("   \033[31m|Nro de Cuenta        Tipo Cuenta         Fecha Apertura                        Saldo           Cliente           |");   
+                                                System.out.println("   \033[31m|-----------------------------------------------------------------------------------------------------------------|");
+                                               impreso = 1;
+                                            }
+                                            System.out.println("   \033[31m|\033[39m"+String.format("%-15s",cuentaB[i].getNroCuenta()) + "        " + String.format("%-10s",DesCuenta) + "        " +String.format("%-15s",cuentaB[i].getFechaApertura()) + "           " + String.format("%-11s",cuentaB[i].getSaldo())+ "    " + String.format("%-15s",NomCliente)+"\033[31m   |");
+                                        }
+                                    }
+                                    System.out.println("   \033[31m#-----------------------------------------------------------------------------------------------------------------#");
+                                    break;
+                                }
                                 case 5:
                                 {
                                     tipoOperacion.getListTipoOperacion(tipoO);
