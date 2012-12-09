@@ -188,8 +188,7 @@ public class PracticaGitHub {
                                     int idCliente = Integer.parseInt(buffer2.readLine());
                                     cuentaB[indiceCuentaB]= new cuentaBancaria();
                                     cuentaB[indiceCuentaB].createCuentaBancaria((indiceCuentaB+1),nroCuenta,idCliente,clienteGlobal,tipoC);
-                                    indiceCuentaB = cuentaBancaria.indice;
-                                    System.out.println("\n\033[31mCuenta bancaria registrada");
+                                    indiceCuentaB = cuentaBancaria.indice;                                    
                                     break;
                                 }
                                 case 2: // Realiza Operacion Bancaria
@@ -250,7 +249,7 @@ public class PracticaGitHub {
                                             System.out.println("\n\033[34mIngrese el monto de la Operación a realizar: ");
                                             String monto = buffer.readLine();
                                             OpeBanc[indiceOpeBanc] = new operacionBancaria();
-                                            OpeBanc[indiceOpeBanc].createOperacionBancaria((indiceOpeBanc+1), Long.parseLong(idCliente), clave, tipoOpB,opB, Long.parseLong(cuenta), Float.parseFloat(monto), cuentaB);
+                                            OpeBanc[indiceOpeBanc].createOperacionBancaria((indiceOpeBanc+1), Long.parseLong(idCliente), clave, tipoOpB,opB, tipoO, Long.parseLong(cuenta), Float.parseFloat(monto), cuentaB);
                                             indiceOpeBanc++;
                                             break;
                                         }
@@ -259,7 +258,7 @@ public class PracticaGitHub {
                                             System.out.println("\n\033[34mIngrese el monto de la Operación a realizar: ");
                                             String monto = buffer.readLine();
                                             OpeBanc[indiceOpeBanc] = new operacionBancaria();
-                                            OpeBanc[indiceOpeBanc].createOperacionBancaria((indiceOpeBanc+1), Long.parseLong(idCliente), clave, tipoOpB,opB, Long.parseLong(cuenta), Float.parseFloat(monto), cuentaB);
+                                            OpeBanc[indiceOpeBanc].createOperacionBancaria((indiceOpeBanc+1), Long.parseLong(idCliente), clave, tipoOpB,opB, tipoO, Long.parseLong(cuenta), Float.parseFloat(monto), cuentaB);
                                             indiceOpeBanc++;
                                             break;                                           
                                         }
@@ -268,7 +267,7 @@ public class PracticaGitHub {
                                             String monto;
                                             monto = operacionBancaria.retiroCajero();
                                             OpeBanc[indiceOpeBanc] = new operacionBancaria();
-                                            OpeBanc[indiceOpeBanc].createOperacionBancaria((indiceOpeBanc+1), Long.parseLong(idCliente), clave, tipoOpB,opB, Long.parseLong(cuenta), Float.parseFloat(monto), cuentaB);
+                                            OpeBanc[indiceOpeBanc].createOperacionBancaria((indiceOpeBanc+1), Long.parseLong(idCliente), clave, tipoOpB,opB, tipoO, Long.parseLong(cuenta), Float.parseFloat(monto), cuentaB);
                                             indiceOpeBanc++;
                                             break;
                                         }
@@ -368,10 +367,11 @@ public class PracticaGitHub {
                                         System.out.println("\n\033[31mCliente no Existe");
                                         break;
                                     }
-                                    cuentaB[indiceCuentaB]= new cuentaBancaria();
+                                    cuentaB[indiceCuentaB]= new cuentaBancaria();                                    
                                     cuentaB[cuentaBancaria.indice].getListCuentas(Long.parseLong(idCliente), cuentaB);
                                     System.out.println("\n\033[34mSeleccione el Id de la Cuenta Bancaria a la que desea ver las Operaciones Bancarias: ");
-                                    String cuenta = buffer.readLine();
+                                    String cuenta = buffer.readLine();       
+                                   
                                     OpeBanc[indiceOpeBanc] = new operacionBancaria();
                                     OpeBanc[indiceOpeBanc].ConsultarOperacionesBancarias(Long.parseLong(idCliente), Long.parseLong(cuenta), cuentaB, OpeBanc);
                                     break;

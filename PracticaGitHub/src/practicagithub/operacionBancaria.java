@@ -21,34 +21,54 @@ public class operacionBancaria {
     tipoOperacion  tipo  = new tipoOperacion();
     float   montoOp;
     static int indiceOb = 0;        
-    public void createOperacionBancaria(long idOper, Long idCli, String clave, int tipoOpB,String opB, Long idCuen, float monto, cuentaBancaria cuentaB[])
+    public void createOperacionBancaria(long idOper, Long idCli, String clave, int tipoOpB,String opB, tipoOperacion tipoO[], Long idCuen, float monto, cuentaBancaria cuentaB[])
     {
         float chk;
+        chk=0;
         int oper=0;
         if(tipoOpB==1 || tipoOpB==3)
         {
             chk = cuenta.checkSaldo(monto, idCuen, cuentaB);
             if(chk>0)
             {                  
-                oper=cuenta.actSaldo((monto*(-1)), idCuen, cuentaB);
+                oper=cuenta.actSaldo((monto*(-1)), idCuen, cuentaB);               
             }
             else
             {
                 System.out.println("\n\033[31mSaldo Insuficiente");
             }
+            
         }   
         if(tipoOpB==2)
-        {
-            oper=cuenta.actSaldo(monto, idCuen, cuentaB);
-            //chk =cuenta.checkSaldo(monto, idCuen, cuentaB);            
+        {            
+            oper=cuenta.actSaldo(monto, idCuen, cuentaB);                
         }
         if(oper==1)
         {
+            for(int i=0;i<tipoOperacion.indiceTO;i++)
+            {
+                if(tipoO[i].idTipoOperacion==Long.parseLong(opB))
+                {
+                    tipo.descripcion=tipoO[i].descripcion;
+                    tipo.tipo=tipoO[i].tipo;
+                    tipo.idTipoOperacion=tipoO[i].idTipoOperacion;
+                }
+            }
+            for(int i=0;i<cuentaBancaria.indice;i++)
+            {
+                if(cuentaB[i].idCuentaBancaria==idCuen)
+                {
+                    cuenta.idCuentaBancaria=cuentaB[i].idCuentaBancaria;
+                    cuenta.existe=cuentaB[i].existe;
+                    cuenta.fechaApertura=cuentaB[i].fechaApertura;
+                    cuenta.numeroCuenta=cuentaB[i].numeroCuenta;
+                    cuenta.saldo=cuentaB[i].saldo;
+                    cuenta.objCliente.idCliente=cuentaB[i].objCliente.idCliente;
+                    cuenta.objCliente.nombreCliente=cuentaB[i].objCliente.nombreCliente;
+                }
+            }
             this.claveOperacion = clave;
-            this.idOperacion = idOper;
-            cuenta.idCuentaBancaria=idCuen;  
-            cuenta.objCliente.idCliente=idCli;
-            tipo.idTipoOperacion=Long.parseLong(opB);
+            this.idOperacion = idOper;                       
             this.montoOp = monto;
             indiceOb ++;
             System.out.println("\n\033[31mOperación Bancaria Registrada");
@@ -136,8 +156,7 @@ public class operacionBancaria {
     
     public void ConsultarOperacionesBancarias(Long idCli, Long idCuen, cuentaBancaria cuentaB[],operacionBancaria OpeBanc[])
     {
-        String msjs[]  = new String[6];
-        String msj;
+        String msjs[]  = new String[6];              
         msjs[0] = "Fecha";
         msjs[1] = "Tipo de Operación";
         msjs[2] = "Monto";
@@ -146,7 +165,7 @@ public class operacionBancaria {
         {            
             if(i==0)
             {
-                String tit = "   \033[31m         \033[31mOperaciones Bancarias de la Cuenta "+OpeBanc[i].cuenta.idCuentaBancaria+"\n";
+                String tit = "   \033[31m         \033[31mOperaciones Bancarias de la Cuenta "+OpeBanc[i].cuenta.numeroCuenta+"\n";
                 System.out.format("\033[34m%18s",tit);
                 System.out.println("   \033[31m#--------------------------------------------------------------------------------------------------------#");
                 System.out.format("\033[31m%35s%35s%35s",msjs[0],msjs[1],msjs[2]);
@@ -155,11 +174,24 @@ public class operacionBancaria {
             }                        
             if(OpeBanc[i].cuenta.objCliente.idCliente.equals(idCli) && OpeBanc[i].cuenta.idCuentaBancaria.equals(idCuen))
             {
-                System.out.format("   \033[39m%1s%35s%35s%32s%1s","\033[31m|\033[39m",OpeBanc[i].fechaOperacion,OpeBanc[i].tipo.idTipoOperacion,OpeBanc[i].montoOp,"\033[31m  |");
-                System.out.format("\n");                                
+                if(OpeBanc[i].tipo.tipo==1 || OpeBanc[i].tipo.tipo==3)
+                {
+                    System.out.format("   \033[39m%1s%35s%35s%32s%1s","\033[31m|\033[39m",OpeBanc[i].fechaOperacion,OpeBanc[i].tipo.descripcion,"(-)"+OpeBanc[i].montoOp,"\033[31m  |");
+                }
+                else
+                {
+                    System.out.format("   \033[39m%1s%35s%35s%32s%1s","\033[31m|\033[39m",OpeBanc[i].fechaOperacion,OpeBanc[i].tipo.descripcion,OpeBanc[i].montoOp,"\033[31m  |");                    
+                }
+                System.out.format("\n");                  
             }
         }
-        System.out.println("   \033[31m#--------------------------------------------------------------------------------------------------------#");              
-   
+        System.out.println("   \033[31m#--------------------------------------------------------------------------------------------------------#");            
+        for(int i=0;i<cuentaBancaria.indice;i++)
+        {
+            if(cuentaB[i].idCuentaBancaria.equals(idCuen))
+            {
+                System.out.println("                                                                                        Saldo: "+cuentaB[i].saldo);
+            }
+        }        
     }
 }
