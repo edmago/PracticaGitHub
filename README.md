@@ -1,15 +1,27 @@
+Universidad Nacional Experimental del Táchira
+==============================================
+Decanato de Postgrado
+----------------------
+
+Modulo Actualización Tecnológica
+================================
+
+Profesor
+========
+José Clemente   				
+
 Practica
 ========
 
-Practica GitHub Modulo Actualizacion Tecnologica
+Practica GitHub
 
 Integrantes de Grupo
 ====================
 
-Apellido y Nombre        Usuario
+Apellido y Nombre    -    Usuario
 ----------------------	-----------
 Contreras Kenny 	  -  kenlis24  				
-Gomez Edgardo     	  -  edmago    				
+Gómez Edgardo     	  -  edmago    				
 Nieto Claudia		  -  ClaudiaN    				
-Sanchez Jhoan		  -  jsanchez1984    			
-Useche Sugey Rosita	  -  suseche    				
+Sánchez Jhoan		  -  jsanchez1984    			
+Useche Sugey Rosita	  -  suseche 
