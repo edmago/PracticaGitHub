@@ -61,7 +61,9 @@ public class cuentaBancaria {
                 existe = 0;
             }
           }
+        
         indice++;
+        System.out.println("\n\033[31mCuenta bancaria registrada");     
        }
     }
     
