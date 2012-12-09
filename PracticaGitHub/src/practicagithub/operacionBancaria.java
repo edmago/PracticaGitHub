@@ -26,26 +26,25 @@ public class operacionBancaria {
         {
             chk = cuenta.checkSaldo(monto, idCuen, cuentaB);
             if(chk>0)
-            {    
-               System.out.println("Monto"+(monto*(-1)));
+            {                  
                 oper=cuenta.actSaldo((monto*(-1)), idCuen, cuentaB);
             }
             else
             {
-                System.out.println("Saldo Insuficiente");
+                System.out.println("\n\033[31mSaldo Insuficiente");
             }
         }   
         if(tipoOpB==2)
         {
             oper=cuenta.actSaldo(monto, idCuen, cuentaB);
-            chk =cuenta.checkSaldo(monto, idCuen, cuentaB);
-            System.out.println("Saldo "+chk);
+            chk =cuenta.checkSaldo(monto, idCuen, cuentaB);            
         }
         if(oper==1)
         {
             this.claveOperacion = clave;
             this.idOperacion = idOper;
             indiceOb ++;
+            System.out.println("\n\033[34mOperación Bancaria Registrada");
         }                  
     }
 
@@ -66,7 +65,7 @@ public class operacionBancaria {
         msjs[5] = "\n";
         System.out.format("\033[31m%35s%35s%35s%35s%35s%35s",msjs[0],msjs[1],msjs[2],msjs[3],msjs[4],msjs[5]);
         System.out.println("   \033[31m#---------------------------------#");
-        System.out.println("\n     Seleccione el Monto a Retirar\n");
+        System.out.println("\n\033[34mSeleccione el Monto a Retirar\n");
     }
     
 }

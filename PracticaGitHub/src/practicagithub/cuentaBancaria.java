@@ -76,27 +76,24 @@ public class cuentaBancaria {
     {
         int i;
         String msjs[]  = new String[3];
-        String msj;
-        System.out.println("Get cuentas   " + indice);
-        
+        String msj;               
         String tit = "      Listado de Cuentas\n\n";
         System.out.format("\033[31m%18s",tit);
+        System.out.println("   \033[31m#------------------------------------------------------------#");
         msjs[0] = "Id";
-        msjs[1] = "Descripción";
-        System.out.format("\033[31m%10s%25s",msjs[0],msjs[1]);  
+        msjs[1] = "Num. Cuenta";
+        System.out.format("\033[31m%10s%20s",msjs[0],msjs[1]);
+        System.out.println("\n   \033[31m|------------------------------------------------------------|");
         for (i=0 ; i < indice ; i++)
-        {
-            //System.out.println("Cliente   " + vecCtas[i].objCliente.idCliente + " -- Valor " + idCli); 
+        {            
             if( vecCtas[i].objCliente.idCliente.equals(idCli))
-             {
-                 
-                 System.out.print("\n");
-                       
-                 msj = String.format("%10s%25s",vecCtas[i].idCuentaBancaria, vecCtas[i].numeroCuenta);
+             {                                                       
+                 msj = String.format("%10s%20s",vecCtas[i].idCuentaBancaria, vecCtas[i].numeroCuenta);
                  System.out.println(msj);
                  
              }
         }
+        System.out.println("   \033[31m#------------------------------------------------------------#");
     }
     
     public float checkSaldo(float monto, long idCuen, cuentaBancaria cuentaB[])           
@@ -113,13 +110,10 @@ public class cuentaBancaria {
     public int actSaldo(float monto, Long idCuen, cuentaBancaria cuentaB[])
     {
         for(int i=0;i<indice;i++)
-        {
-           System.out.println("Entro"+cuentaB[i].idCuentaBancaria+"  "+idCuen);
+        {           
            if(cuentaB[i].idCuentaBancaria==idCuen)
-           {
-               System.out.println("Entro"+cuentaB[i].saldo+"monto"+monto);
-               cuentaB[i].saldo=cuentaB[i].saldo+monto;
-               System.out.println("Entro"+cuentaB[i].saldo);
+           {               
+               cuentaB[i].saldo=cuentaB[i].saldo+monto;               
                return 1;
            }          
         }

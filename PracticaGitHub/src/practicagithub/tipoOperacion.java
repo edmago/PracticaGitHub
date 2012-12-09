@@ -51,14 +51,21 @@ public class tipoOperacion {
     {
         String msjs[]  = new String[3];
         String msj;
-        System.out.print("\n");
+        System.out.print("\n");        
         String tit = "      Tipo de Operaciones\n\n";
         System.out.format("\033[31m%18s",tit);        
+        System.out.println("   \033[31m#------------------------------------------------------------#");
+        msjs[0] = "Id";
+        msjs[1] = "Operación";
+        System.out.format("\033[31m%10s%25s",msjs[0],msjs[1]);
+        System.out.println("   \033[31m|------------------------------------------------------------|");
+        
         for(int i=0; i < indiceTO; i++)
         {            
             msj = String.format("%10s%25s",tipoO[i].idTipoOperacion, tipoO[i].descripcion);
             System.out.println(msj);
         }        
+        System.out.println("   \033[31m#------------------------------------------------------------#");
     }
     
     static public int getTipoOp(Long idTOper, tipoOperacion tipoO[])

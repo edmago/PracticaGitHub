@@ -215,12 +215,12 @@ public class PracticaGitHub {
                                     
                                     if(cli==-1)
                                     {
-                                        System.out.println("Cliente no Existe");
+                                        System.out.println("\n\033[31mCliente no Existe");
                                         break;
                                     }    
                                     if(bandclav==0)
                                     {
-                                        System.out.println("Clave de Operaciones Incorrecta");
+                                        System.out.println("\n\033[31mClave de Operaciones Incorrecta");
                                         break;
                                     }
                                     
@@ -234,13 +234,12 @@ public class PracticaGitHub {
                                     String opB;
                                     opB = buffer.readLine();         
                                     
-                                    tipoOpB = tipoOperacion.getTipoOp(Long.parseLong(opB), tipoO);
-                                    System.out.println("tipoOpB: "+tipoOpB);
+                                    tipoOpB = tipoOperacion.getTipoOp(Long.parseLong(opB), tipoO);                                   
                                     switch (tipoOpB)
                                     {
                                         case 0:
                                         {
-                                            System.out.println("Tipo de Operacion No Valido");
+                                            System.out.println("\n\033[31mTipo de Operacion No Valido");
                                             break;
                                         }
                                         case 1:
@@ -259,8 +258,7 @@ public class PracticaGitHub {
                                             String monto = buffer.readLine();
                                             OpeBanc[indiceOpeBanc] = new operacionBancaria();
                                             OpeBanc[indiceOpeBanc].createOperacionBancaria((indiceOpeBanc+1), Long.parseLong(idCliente), clave, tipoOpB, Long.parseLong(cuenta), Float.parseFloat(monto), cuentaB);
-                                            break;
-                                            //System.out.println("Tipo  Deposito");
+                                            break;                                           
                                         }
                                         case 3:
                                         {
