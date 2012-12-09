@@ -25,16 +25,16 @@ public class cliente {
         BufferedReader  buffer = new BufferedReader(lector_entrada); 
         if(getListClientesById(vecCliente,idcli)==0)
         {
-            System.out.println("Introduzca el nombre del Cliente: ");
+            System.out.println("\n\033[34mIntroduzca el nombre del Cliente: ");
             String nombre = buffer.readLine();
             nombreCliente = nombre;
             while(!"0000".equals(claveOperacion) && claveOperacion.length()!=4)
             {
-             System.out.println("Introduzca clave para operaciones: ");
+             System.out.println("\n\033[34mIntroduzca clave para operaciones: ");
              claveOperacion = buffer.readLine();
             }
             indiceCli++;
-            System.out.println("Cliente Agregado");
+            System.out.println("\n\033[31mCliente Agregado");
         }
     }    
     public int getListClientesById(cliente vecCliente [],long id)

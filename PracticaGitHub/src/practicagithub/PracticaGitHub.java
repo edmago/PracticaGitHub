@@ -57,8 +57,7 @@ public class PracticaGitHub {
                     {
                       String opcionMenu1 = "0";  
                        while(!opcionMenu1.equals("5"))
-                        {    
-                            System.out.println("\n\n");
+                        {                                
                             System.out.println("\n\n        \033[31mMódulo Administrativo\n");
                             System.out.println("        \033[31m1.- \033[39mAgregar Tipo de Cuenta");
                             System.out.println("        \033[31m2.- \033[39mAgregar Tipo de Operación");
@@ -81,7 +80,7 @@ public class PracticaGitHub {
                                     tipoCuenta.indice = indiceTipoC;
                                     tipoC[indiceTipoC].addTipoCuenta((indiceTipoC+1),descripcion);
                                     indiceTipoC++;
-                                    System.out.println("\n\033[31mTipo de Cuenta Insertado");
+                                    System.out.println("\n\033[31mTipo de Cuenta Agregada");
                                     break;                                                                                                                 
                                 }
                                 case 2:
@@ -107,7 +106,7 @@ public class PracticaGitHub {
                                         tipoOperacion.indiceTO = indiceTipoO;
                                         tipoO[indiceTipoO].addTipoOperacion((indiceTipoO+1),Integer.parseInt(tipoop),descrip);
                                         indiceTipoO++;
-                                        System.out.println("\n\033[31mTipo de Operación Insertado");   
+                                        System.out.println("\n\033[31mTipo de Operación Agregada");   
                                     }
                                     catch(NumberFormatException e)
                                     {
@@ -120,7 +119,7 @@ public class PracticaGitHub {
                                 {                                                                                                            
                                     try
                                     {
-                                    System.out.println("Ingrese el Id del Cliente: ");
+                                    System.out.println("\n\033[34mIngrese el Id del Cliente: ");
                                     long idCliente = Long.parseLong(buffer.readLine());
                                     clienteGlobal[cliente.indiceCli]= new cliente();
                                     clienteGlobal[cliente.indiceCli].createCliente(clienteGlobal,idCliente);                                    
@@ -153,10 +152,12 @@ public class PracticaGitHub {
                                 }
                                 case 5:
                                 {                                   
+                                    //Regresa al men{u anterior
                                     break;
                                 }
                                 case 6:
                                 {
+                                    //Salir
                                     System.exit(0);
                                 }                               
                             }//fin del switch 2 

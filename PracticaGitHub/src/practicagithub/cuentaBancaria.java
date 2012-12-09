@@ -40,7 +40,7 @@ public class cuentaBancaria {
              while(existe==0)
              {
               try{
-               System.out.println("\nSeleccione el Tipo de Cuenta");
+               System.out.println("\n\033[34mSeleccione el Tipo de Cuenta:");
                 InputStreamReader  lector_entrada = new InputStreamReader(System.in);
                 BufferedReader  buffer = new BufferedReader(lector_entrada); 
                 String tipoCu;
@@ -63,7 +63,7 @@ public class cuentaBancaria {
           }
         
         indice++;
-        System.out.println("\n\033[31mCuenta bancaria registrada");     
+        System.out.println("\n\033[31mCuenta Bancaria Registrada");     
        }
     }
     
