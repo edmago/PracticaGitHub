@@ -225,12 +225,21 @@ public class PracticaGitHub {
                                         System.out.println("\n\033[31mClave de Operaciones Incorrecta");
                                         break;
                                     }
-                                    
-                                    cuentaB[indiceCuentaB]= new cuentaBancaria();
-                                    cuentaB[cuentaBancaria.indice].getListCuentas (Long.parseLong(idCliente), cuentaB);
-                                    System.out.println("\n\033[34mSeleccione el Id de la Cuenta Bancaria a Utilizar: ");
-                                    String cuenta = buffer.readLine();
-                                    
+                                    int exis=0;
+                                    String cuenta;
+                                    cuenta="";
+                                    while(exis==0)
+                                    {
+                                        cuentaB[indiceCuentaB]= new cuentaBancaria();
+                                        cuentaB[cuentaBancaria.indice].getListCuentas (Long.parseLong(idCliente), cuentaB);
+                                        System.out.println("\n\033[34mSeleccione el Id de la Cuenta Bancaria a Utilizar: ");
+                                        cuenta = buffer.readLine();
+                                        exis=cuentaB[cuentaBancaria.indice].validarcuenta(cuentaB, Long.parseLong(cuenta));
+                                        if(exis==0)
+                                        {
+                                            System.out.println("\n\033[31mOpción no Valida");
+                                        }
+                                    }
                                     tipoOperacion.getTipoOperacion(tipoO);
                                     System.out.println("\n\033[34mIngrese Tipo de Operación Bancaria a realizar: ");
                                     String opB;
@@ -367,11 +376,21 @@ public class PracticaGitHub {
                                         System.out.println("\n\033[31mCliente no Existe");
                                         break;
                                     }
-                                    cuentaB[indiceCuentaB]= new cuentaBancaria();                                    
-                                    cuentaB[cuentaBancaria.indice].getListCuentas(Long.parseLong(idCliente), cuentaB);
-                                    System.out.println("\n\033[34mSeleccione el Id de la Cuenta Bancaria a la que desea ver las Operaciones Bancarias: ");
-                                    String cuenta = buffer.readLine();       
-                                   
+                                    int exis=0;
+                                    String cuenta;
+                                    cuenta="";
+                                    while(exis==0)
+                                    {
+                                        cuentaB[indiceCuentaB]= new cuentaBancaria();                                    
+                                        cuentaB[cuentaBancaria.indice].getListCuentas(Long.parseLong(idCliente), cuentaB);
+                                        System.out.println("\n\033[34mSeleccione el Id de la Cuenta Bancaria a la que desea ver las Operaciones Bancarias: ");
+                                        cuenta = buffer.readLine();                                           
+                                        exis=cuentaB[cuentaBancaria.indice].validarcuenta(cuentaB, Long.parseLong(cuenta));
+                                        if(exis==0)
+                                        {
+                                            System.out.println("\n\033[31mOpción no Valida");
+                                        }
+                                    }
                                     OpeBanc[indiceOpeBanc] = new operacionBancaria();
                                     OpeBanc[indiceOpeBanc].ConsultarOperacionesBancarias(Long.parseLong(idCliente), Long.parseLong(cuenta), cuentaB, OpeBanc);
                                     break;

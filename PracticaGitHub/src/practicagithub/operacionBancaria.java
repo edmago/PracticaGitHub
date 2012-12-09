@@ -189,7 +189,11 @@ public class operacionBancaria {
         }
         if(bandera==0)
         {           
-            System.out.format("   \033[39m%1s%50s%55s%1s","\033[31m|\033[39m","La Cuenta no posee movimientos","                     ","\033[31m  |");                    
+            System.out.println("   \033[31m#--------------------------------------------------------------------------------------------------------#");
+            String tit = "   \033[31m         \033[31mOperaciones Bancarias de la Cuenta "+idCuen+"\n";
+            System.out.format("\033[34m%18s",tit);
+            System.out.println("   \033[31m#--------------------------------------------------------------------------------------------------------#");
+            System.out.format("   \033[39m%1s%50s%55s%1s","\033[31m|\033[39m","La Cuenta no posee movimientos","                    ","\033[31m  |");                    
             System.out.println("\n   \033[31m#--------------------------------------------------------------------------------------------------------#");                                    
         }
         else

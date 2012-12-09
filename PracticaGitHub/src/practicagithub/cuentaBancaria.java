@@ -119,6 +119,17 @@ public class cuentaBancaria {
         }
         return 0; 
     }
+    public int validarcuenta(cuentaBancaria cuentaB[], Long idCuen)
+    {
+        for(int i=0;i<cuentaBancaria.indice;i++)
+        {
+            if(cuentaB[i].idCuentaBancaria==idCuen)
+            {
+                return 1;
+            }    
+        }
+        return 0;
+    }
     public Long getClienteCuenta()
     {
         return(objCliente.idCliente);
@@ -143,4 +154,5 @@ public class cuentaBancaria {
     {
         return(numeroCuenta);
     }
+    
 }
