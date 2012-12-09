@@ -204,7 +204,7 @@ public class PracticaGitHub {
                                     {
                                         if(clienteGlobal[i].getClienteId()==Integer.parseInt(idCliente))
                                         {                                            
-                                            System.out.println("\n\033[34m  Nombre del Cliente: "+clienteGlobal[i].nombreCliente);
+                                            System.out.println("\n\033[34mNombre del Cliente: "+clienteGlobal[i].nombreCliente);
                                             System.out.println("\n\033[34mIngrese la Clave de Operaciones Bancarias: ");
                                             clave = buffer.readLine();
                                             if(clienteGlobal[i].claveOperacion.equals(clave))

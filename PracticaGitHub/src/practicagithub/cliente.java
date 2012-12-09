@@ -43,7 +43,7 @@ public class cliente {
         {
             if(vecCliente[i].idCliente==id)
             {
-                System.out.println("Cliente existe");
+                System.out.println("Nombre del Cliente: " + vecCliente[i].nombreCliente);
                 return 1;
                 }
                 }
