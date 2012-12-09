@@ -197,15 +197,17 @@ public class PracticaGitHub {
                                     System.out.println("\n\033[34mIngrese el Id del Cliente: ");
                                     String idCliente = buffer.readLine();
                                     //System.out.printnl(cuentaB[indiceCuentaB].objCliente.nombreCliente());
-                                    System.out.println("\n\033[34mIngrese la Clave de Operaciones Bancarias: ");
-                                    String clave = buffer.readLine();
                                     int i, cli=-1;
                                     int bandclav=0;
                                     int tipoOpB;
+                                    String clave = "";
                                     for (i = 0; i < cliente.indiceCli ; i++)
                                     {
                                         if(clienteGlobal[i].getClienteId()==Integer.parseInt(idCliente))
                                         {                                            
+                                            System.out.println("\n\033[34m  Nombre del Cliente: "+clienteGlobal[i].nombreCliente);
+                                            System.out.println("\n\033[34mIngrese la Clave de Operaciones Bancarias: ");
+                                            clave = buffer.readLine();
                                             if(clienteGlobal[i].claveOperacion.equals(clave))
                                             {
                                                 bandclav = 1;                                               
