@@ -89,7 +89,7 @@ public class cuentaBancaria {
             if( vecCtas[i].objCliente.idCliente.equals(idCli))
              {                                                       
                  msj = String.format("%12s%20s",vecCtas[i].idCuentaBancaria, vecCtas[i].numeroCuenta);
-                 System.out.println("   \033[31m|"+msj+"                            |");
+                 System.out.println("   \033[39m|"+msj+"                            |");
                  
              }
         }

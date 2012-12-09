@@ -90,13 +90,13 @@ public class PracticaGitHub {
                                     try{ 
                                         while(Integer.parseInt(tipoop)>3 || Integer.parseInt(tipoop)<1)
                                         {                                           
-                                            System.out.println("\n   \033[31m#------------------------------------------------------------#");
-                                            System.out.println("      \033[31mOpciones para Operaciones");
-                                            System.out.println("   \033[31m|------------------------------------------------------------|");                                            
-                                            System.out.println("\033[31m        1.- \033[39mRetiro");
-                                            System.out.println("\033[31m        2.- \033[39mDepósito");
-                                            System.out.println("\033[31m        3.- \033[39mRetiro por Cajero");
-                                            System.out.println("   \033[31m#------------------------------------------------------------#");
+                                            System.out.println("\n   \033[31m#-----------------------------------------#");
+                                            System.out.println("   \033[31m|       Opciones para Operaciones         |");
+                                            System.out.println("   \033[31m|-----------------------------------------|");                                            
+                                            System.out.println("   \033[31m|        1.- \033[39mRetiro                       \033[31m|");
+                                            System.out.println("   \033[31m|        2.- \033[39mDepósito                     \033[31m|");
+                                            System.out.println("   \033[31m|        3.- \033[39mRetiro por Cajero            \033[31m|");
+                                            System.out.println("   \033[31m#-----------------------------------------#");
                                             System.out.println("\n\033[34mSeleccione la Opción para el Tipo de Operación a crear: ");
                                             tipoop = buffer.readLine();                                         
                                         }
@@ -344,7 +344,7 @@ public class PracticaGitHub {
                                                            DesCuenta = tipoC[k].getDescripcionTipoCta();
                                                        }
                                                    }
-                                                   System.out.println("   \033[31m|"+String.format("%-15s",cuentaB[j].getNroCuenta()) + "        " + String.format("%-10s",DesCuenta) + "        " +String.format("%-15s",cuentaB[j].getFechaApertura()) + "        " + String.format("%-8s",cuentaB[j].getSaldo())+"|");
+                                                   System.out.println("   \033[39m|"+String.format("%-15s",cuentaB[j].getNroCuenta()) + "        " + String.format("%-10s",DesCuenta) + "        " +String.format("%-15s",cuentaB[j].getFechaApertura()) + "        " + String.format("%-8s",cuentaB[j].getSaldo())+"|");
                                                }
                                            }
                                            System.out.println("   \033[31m#-------------------------------------------------------------------------------------#");
@@ -386,11 +386,14 @@ public class PracticaGitHub {
                                     {
                                         if (impreso == 0)
                                         {
-                                           System.out.println("Id           Cliente");   
-                                           impreso = 1;
+                                            System.out.println("   \033[31m#-----------------------------------------------------#");
+                                            System.out.println("   \033[31m|        Id                        Cliente            |");   
+                                            System.out.println("   \033[31m|-----------------------------------------------------|");
+                                            impreso = 1;
                                         }
-                                        System.out.println(clienteGlobal[i].getClienteId() + "                  " + clienteGlobal[i].getClienteNom());
+                                        System.out.println("   \033[39m|         "+String.format("%-12s",clienteGlobal[i].getClienteId()) + "       " +String.format("%-25s",clienteGlobal[i].getClienteNom())+"|");
                                     }
+                                    System.out.println("   \033[31m#-----------------------------------------------------#");
                                     break;
                                 }   
                                 case 5:

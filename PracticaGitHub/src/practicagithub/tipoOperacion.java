@@ -42,7 +42,7 @@ public class tipoOperacion {
             {    tipodesc="Depósito";}
             if(tipoO[i].tipo==3)
             {    tipodesc="Retiro Cajero";}
-            msj = String.format("\033[31m%10s%25s%25s",tipoO[i].idTipoOperacion, tipoO[i].descripcion,tipodesc);
+            msj = String.format("\033[39m%10s%25s%25s",tipoO[i].idTipoOperacion, tipoO[i].descripcion,tipodesc);
             System.out.println("   |"+msj+" |");
         }     
         System.out.println("   \033[31m#-------------------------------------------------------------#");
@@ -54,18 +54,18 @@ public class tipoOperacion {
         System.out.print("\n");        
         String tit = "      Tipo de Operaciones\n\n";
         System.out.format("\033[31m%18s",tit);        
-        System.out.println("   \033[31m#------------------------------------------------------------#");
+        System.out.println("   \033[31m#------------------------------------------------------#");
         msjs[0] = "Id";
-        msjs[1] = "Operación";
-        System.out.format("\033[31m%10s%25s",msjs[0],msjs[1]);
-        System.out.println("\n   \033[31m|------------------------------------------------------------|");
+        msjs[1] = "               Operación                  |";
+        System.out.format("\033[31m%1s%10s%25s","   |  ",msjs[0],msjs[1]);
+        System.out.println("\n   \033[31m|------------------------------------------------------|");
         
         for(int i=0; i < indiceTO; i++)
         {            
-            msj = String.format("%10s%25s",tipoO[i].idTipoOperacion, tipoO[i].descripcion);
-            System.out.println(msj);
+            msj = String.format("\033[39m%10s%25s",tipoO[i].idTipoOperacion, tipoO[i].descripcion);
+            System.out.println("   |  "+msj+"                 |");
         }        
-        System.out.println("   \033[31m#------------------------------------------------------------#");
+        System.out.println("   \033[31m#------------------------------------------------------#");
     }
     
     static public int getTipoOp(Long idTOper, tipoOperacion tipoO[])

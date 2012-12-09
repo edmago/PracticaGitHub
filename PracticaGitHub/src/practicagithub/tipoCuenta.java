@@ -50,7 +50,7 @@ public class tipoCuenta {
         System.out.println("   \033[31m|------------------------------|");
         for(int i=0; i < indice; i++)
         {            
-            msj = String.format("\033[31m%8s%18s",tipoC[i].idTipocuenta,tipoC[i].descripcion);            
+            msj = String.format("\033[39m%8s%18s",tipoC[i].idTipocuenta,tipoC[i].descripcion);            
             System.out.println("   |"+msj+"    |");
         }  
         System.out.println("   \033[31m#------------------------------#");
