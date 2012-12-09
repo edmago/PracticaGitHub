@@ -324,16 +324,18 @@ public class PracticaGitHub {
                                     {
                                        if(IdCliente.compareTo(clienteGlobal[i].getClienteId()) == 0)
                                        {
-                                           System.out.println("Id del Cliente    : "+ clienteGlobal[i].getClienteId());
-                                           System.out.println("Nombre del Cliente: "+ clienteGlobal[i].getClienteNom());
+                                           System.out.println("\033[31mId del Cliente    : "+ clienteGlobal[i].getClienteId());
+                                           System.out.println("\033[31mNombre del Cliente: "+ clienteGlobal[i].getClienteNom());
                                            for (int j = 0; j < cuentaBancaria.indice; j++)
                                            {
                                                if (IdCliente.compareTo(cuentaB[j].getClienteCuenta()) == 0)
                                                {
                                                    if (impreso == 0)
                                                    {
-                                                      System.out.println("Nro de Cuenta        Tipo Cuenta        Fecha Apertura        Saldo");   
-                                                      impreso = 1;
+                                                       System.out.println("   \033[31m#-------------------------------------------------------------------------------------#");
+                                                       System.out.println("   \033[31m|Nro de Cuenta        Tipo Cuenta         Fecha Apertura                    Saldo     |");   
+                                                       System.out.println("   \033[31m|-------------------------------------------------------------------------------------|");
+                                                       impreso = 1;
                                                    }
                                                    for(int k=0;k<tipoCuenta.indice ;k++)
                                                    {
@@ -342,9 +344,10 @@ public class PracticaGitHub {
                                                            DesCuenta = tipoC[k].getDescripcionTipoCta();
                                                        }
                                                    }
-                                                   System.out.println(cuentaB[j].getNroCuenta() + "        " + DesCuenta + "        " +cuentaB[j].getFechaApertura() + "        " + cuentaB[j].getSaldo());
+                                                   System.out.println("   \033[31m|"+String.format("%-15s",cuentaB[j].getNroCuenta()) + "        " + String.format("%-10s",DesCuenta) + "        " +String.format("%-15s",cuentaB[j].getFechaApertura()) + "        " + String.format("%-8s",cuentaB[j].getSaldo())+"|");
                                                }
                                            }
+                                           System.out.println("   \033[31m#-------------------------------------------------------------------------------------#");
                                        }
                                     }
                                     break;

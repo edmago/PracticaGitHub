@@ -30,7 +30,7 @@ public class cliente {
             nombreCliente = nombre;
             while(!"0000".equals(claveOperacion) && claveOperacion.length()!=4)
             {
-             System.out.println("\n\033[34mIntroduzca clave para operaciones: ");
+             System.out.println("\n\033[34mIntroduzca clave para operaciones (Debe ser de 4 dígitos y solo números): ");
              claveOperacion = buffer.readLine();
             }
             indiceCli++;

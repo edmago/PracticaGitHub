@@ -80,16 +80,16 @@ public class cuentaBancaria {
         String tit = "      Listado de Cuentas\n\n";
         System.out.format("\033[31m%18s",tit);
         System.out.println("   \033[31m#------------------------------------------------------------#");
-        msjs[0] = "Id";
-        msjs[1] = "Num. Cuenta";
-        System.out.format("\033[31m%10s%20s",msjs[0],msjs[1]);
+        msjs[0] = "    Id";
+        msjs[1] = "               Num. Cuenta                        |";
+        System.out.format("\033[31m%1s%10s%20s","   |",msjs[0],msjs[1]);
         System.out.println("\n   \033[31m|------------------------------------------------------------|");
         for (i=0 ; i < indice ; i++)
         {            
             if( vecCtas[i].objCliente.idCliente.equals(idCli))
              {                                                       
-                 msj = String.format("%10s%20s",vecCtas[i].idCuentaBancaria, vecCtas[i].numeroCuenta);
-                 System.out.println(msj);
+                 msj = String.format("%12s%20s",vecCtas[i].idCuentaBancaria, vecCtas[i].numeroCuenta);
+                 System.out.println("   \033[31m|"+msj+"                            |");
                  
              }
         }
