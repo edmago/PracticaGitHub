@@ -196,6 +196,7 @@ public class PracticaGitHub {
                                 {
                                     System.out.println("\n\033[34mIngrese el Id del Cliente: ");
                                     String idCliente = buffer.readLine();
+                                    //System.out.printnl(cuentaB[indiceCuentaB].objCliente.nombreCliente());
                                     System.out.println("\n\033[34mIngrese la Clave de Operaciones Bancarias: ");
                                     String clave = buffer.readLine();
                                     int i, cli=-1;
@@ -265,8 +266,8 @@ public class PracticaGitHub {
                                         case 3:
                                         {
                                             //Tipo Retiro Cajero
-                                            operacionBancaria.retiroCajero();
-                                            String monto = buffer.readLine();
+                                            String monto;
+                                            monto = operacionBancaria.retiroCajero();
                                             OpeBanc[indiceOpeBanc] = new operacionBancaria();
                                             OpeBanc[indiceOpeBanc].createOperacionBancaria((indiceOpeBanc+1), Long.parseLong(idCliente), clave, tipoOpB,opB, Long.parseLong(cuenta), Float.parseFloat(monto), cuentaB);
                                             indiceOpeBanc++;
