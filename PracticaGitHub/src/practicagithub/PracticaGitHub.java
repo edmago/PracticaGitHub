@@ -301,7 +301,7 @@ public class PracticaGitHub {
                             System.out.println("    \033[31m1.- \033[39mConsulta de Usuario");
                             System.out.println("    \033[31m2.- \033[39mEstado de Cuenta");
                             System.out.println("    \033[31m3.- \033[39mListado de Usuarios");
-                            System.out.println("    \033[31m4.- \033[39mListado de Cuentas");
+                            System.out.println("    \033[31m4.- \033[39mListado de Cuentas pot Tipo");
                             System.out.println("    \033[31m5.- \033[39mListado de Tipo de Operaciones");
                             System.out.println("    \033[31m6.- \033[39mListado de Tipo de Cuentas");                            
                             System.out.println("    \033[31m7.- \033[39mRegresar al menú anterior");
