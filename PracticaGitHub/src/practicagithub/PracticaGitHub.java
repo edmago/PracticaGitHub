@@ -5,7 +5,6 @@
 package practicagithub;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
@@ -139,7 +138,8 @@ public class PracticaGitHub {
                                     InputStreamReader  lector_entrada2 = new InputStreamReader(System.in);
                                     BufferedReader  buffer2 = new BufferedReader(lector_entrada2);                  
                                     System.out.println("\n\033[34mIngrese el Id del Cliente: ");
-                                    nroCuenta = nroCuenta + (indiceCuentaB + 1);
+                                    int indConca = indiceCuentaB + 1;
+                                    nroCuenta = nroCuenta + indConca;
                                     int idCliente = Integer.parseInt(buffer2.readLine());
                                     cuentaB[indiceCuentaB]= new cuentaBancaria();
                                     cuentaB[indiceCuentaB].createCuentaBancaria((indiceCuentaB+1),nroCuenta,idCliente,clienteGlobal,tipoC);
