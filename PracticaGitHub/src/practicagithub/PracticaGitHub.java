@@ -240,12 +240,23 @@ public class PracticaGitHub {
                                             System.out.println("\n\033[31mOpción no Valida");
                                         }
                                     }
-                                    tipoOperacion.getTipoOperacion(tipoO);
-                                    System.out.println("\n\033[34mIngrese Tipo de Operación Bancaria a realizar: ");
+                                    int exisop;
+                                    exisop=0;
                                     String opB;
-                                    opB = buffer.readLine();         
+                                    opB="";
+                                    while(exisop==0)
+                                    {
+                                        tipoOperacion.getTipoOperacion(tipoO);
+                                        System.out.println("\n\033[34mIngrese Tipo de Operación Bancaria a realizar: ");                                       
+                                        opB = buffer.readLine();         
+                                        exisop=tipoOperacion.validartipoOpe(tipoO, Long.parseLong(opB));
+                                        if(exisop==0)
+                                        {
+                                              System.out.println("\n\033[31mOpción no Valida");
+                                        }    
+                                    }                                        
+                                    tipoOpB = tipoOperacion.getTipoOp(Long.parseLong(opB), tipoO);  
                                     
-                                    tipoOpB = tipoOperacion.getTipoOp(Long.parseLong(opB), tipoO);                                   
                                     switch (tipoOpB) // Seleccion del Tipo de Operacion a Realizar
                                     {
                                         case 0:

@@ -80,6 +80,16 @@ public class tipoOperacion {
         }
         return 0;
     }
-
+    static public int validartipoOpe(tipoOperacion tipoO[], Long idTOper)
+    {
+        for(int i=0;i<tipoOperacion.indiceTO;i++)
+        {
+            if(tipoO[i].idTipoOperacion==idTOper)
+            {
+                return 1;
+            }    
+        }
+        return 0;
+    }
     
 }
