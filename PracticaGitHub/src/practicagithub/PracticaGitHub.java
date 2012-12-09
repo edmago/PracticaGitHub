@@ -248,7 +248,8 @@ public class PracticaGitHub {
                                             System.out.println("\n\033[34mIngrese el monto de la Operación a realizar: ");
                                             String monto = buffer.readLine();
                                             OpeBanc[indiceOpeBanc] = new operacionBancaria();
-                                            OpeBanc[indiceOpeBanc].createOperacionBancaria((indiceOpeBanc+1), Long.parseLong(idCliente), clave, tipoOpB, Long.parseLong(cuenta), Float.parseFloat(monto), cuentaB);
+                                            OpeBanc[indiceOpeBanc].createOperacionBancaria((indiceOpeBanc+1), Long.parseLong(idCliente), clave, tipoOpB,opB, Long.parseLong(cuenta), Float.parseFloat(monto), cuentaB);
+                                            indiceOpeBanc++;
                                             break;
                                         }
                                         case 2:
@@ -257,7 +258,8 @@ public class PracticaGitHub {
                                             System.out.println("\n\033[34mIngrese el monto de la Operación a realizar: ");
                                             String monto = buffer.readLine();
                                             OpeBanc[indiceOpeBanc] = new operacionBancaria();
-                                            OpeBanc[indiceOpeBanc].createOperacionBancaria((indiceOpeBanc+1), Long.parseLong(idCliente), clave, tipoOpB, Long.parseLong(cuenta), Float.parseFloat(monto), cuentaB);
+                                            OpeBanc[indiceOpeBanc].createOperacionBancaria((indiceOpeBanc+1), Long.parseLong(idCliente), clave, tipoOpB,opB, Long.parseLong(cuenta), Float.parseFloat(monto), cuentaB);
+                                            indiceOpeBanc++;
                                             break;                                           
                                         }
                                         case 3:
@@ -266,7 +268,8 @@ public class PracticaGitHub {
                                             operacionBancaria.retiroCajero();
                                             String monto = buffer.readLine();
                                             OpeBanc[indiceOpeBanc] = new operacionBancaria();
-                                            OpeBanc[indiceOpeBanc].createOperacionBancaria((indiceOpeBanc+1), Long.parseLong(idCliente), clave, tipoOpB, Long.parseLong(cuenta), Float.parseFloat(monto), cuentaB);
+                                            OpeBanc[indiceOpeBanc].createOperacionBancaria((indiceOpeBanc+1), Long.parseLong(idCliente), clave, tipoOpB,opB, Long.parseLong(cuenta), Float.parseFloat(monto), cuentaB);
+                                            indiceOpeBanc++;
                                             break;
                                             //System.out.println("Tipo Retiro Cajero");
                                         }
@@ -300,7 +303,7 @@ public class PracticaGitHub {
                             System.out.println("    \033[31m3.- \033[39mListado de Usuarios");
                             System.out.println("    \033[31m4.- \033[39mListado de Cuentas");
                             System.out.println("    \033[31m5.- \033[39mListado de Tipo de Operaciones");
-                            System.out.println("    \033[31m6.- \033[39mListado de Tipo de Cuentas");
+                            System.out.println("    \033[31m6.- \033[39mListado de Tipo de Cuentas");                            
                             System.out.println("    \033[31m7.- \033[39mRegresar al menú anterior");
                             System.out.println("    \033[31m8.- \033[39mSalir");
                             System.out.println("\n\033[34mIngrese el número del Reporte que desea visualizar: ");
@@ -346,6 +349,32 @@ public class PracticaGitHub {
                                     }
                                     break;
                                 }
+                                case 2:
+                                {
+                                    System.out.println("\n\033[34mIngrese el Id del Cliente: ");
+                                    String idCliente = buffer.readLine();
+                                    int i,cli;
+                                    cli=-1;
+                                    for (i = 0; i < cliente.indiceCli ; i++)
+                                    {
+                                        if(clienteGlobal[i].getClienteId()==Integer.parseInt(idCliente))
+                                        {                                                                                        
+                                            cli= i;
+                                        }                                       
+                                    }                                    
+                                    if(cli==-1)
+                                    {
+                                        System.out.println("\n\033[31mCliente no Existe");
+                                        break;
+                                    }
+                                    cuentaB[indiceCuentaB]= new cuentaBancaria();
+                                    cuentaB[cuentaBancaria.indice].getListCuentas(Long.parseLong(idCliente), cuentaB);
+                                    System.out.println("\n\033[34mSeleccione el Id de la Cuenta Bancaria a la que desea ver las Operaciones Bancarias: ");
+                                    String cuenta = buffer.readLine();
+                                    OpeBanc[indiceOpeBanc] = new operacionBancaria();
+                                    OpeBanc[indiceOpeBanc].ConsultarOperacionesBancarias(Long.parseLong(idCliente), Long.parseLong(cuenta), cuentaB, OpeBanc);
+                                    break;
+                                }
                                 case 3:
                                 {
                                     int i;
@@ -370,7 +399,7 @@ public class PracticaGitHub {
                                 {
                                     tipoCuenta.getListCuentas(tipoC);
                                     break;
-                                }
+                                }                              
                                 case 7:
                                 {                                    
                                     break;

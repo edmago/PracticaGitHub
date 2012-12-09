@@ -58,7 +58,7 @@ public class tipoOperacion {
         msjs[0] = "Id";
         msjs[1] = "Operación";
         System.out.format("\033[31m%10s%25s",msjs[0],msjs[1]);
-        System.out.println("   \033[31m|------------------------------------------------------------|");
+        System.out.println("\n   \033[31m|------------------------------------------------------------|");
         
         for(int i=0; i < indiceTO; i++)
         {            
