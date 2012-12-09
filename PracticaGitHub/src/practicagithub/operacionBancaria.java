@@ -160,7 +160,8 @@ public class operacionBancaria {
         msjs[0] = "Fecha";
         msjs[1] = "Tipo de Operación";
         msjs[2] = "Monto";
-        System.out.print("\n");        
+        System.out.print("\n");  
+        int bandera=0;
         for(int i=0; i<indiceOb; i++)
         {            
             if(i==0)
@@ -182,16 +183,25 @@ public class operacionBancaria {
                 {
                     System.out.format("   \033[39m%1s%35s%35s%32s%1s","\033[31m|\033[39m",OpeBanc[i].fechaOperacion,OpeBanc[i].tipo.descripcion,OpeBanc[i].montoOp,"\033[31m  |");                    
                 }
-                System.out.format("\n");                  
+                System.out.format("\n");   
+                bandera=1;
             }
         }
-        System.out.println("   \033[31m#--------------------------------------------------------------------------------------------------------#");            
-        for(int i=0;i<cuentaBancaria.indice;i++)
+        if(bandera==0)
+        {           
+            System.out.format("   \033[39m%1s%50s%55s%1s","\033[31m|\033[39m","La Cuenta no posee movimientos","                     ","\033[31m  |");                    
+            System.out.println("\n   \033[31m#--------------------------------------------------------------------------------------------------------#");                                    
+        }
+        else
         {
-            if(cuentaB[i].idCuentaBancaria.equals(idCuen))
+            System.out.println("   \033[31m#--------------------------------------------------------------------------------------------------------#");            
+            for(int i=0;i<cuentaBancaria.indice;i++)
             {
-                System.out.println("                                                                                        Saldo: "+cuentaB[i].saldo);
-            }
-        }        
+                if(cuentaB[i].idCuentaBancaria.equals(idCuen))
+                {
+                    System.out.println("                                                                                        Saldo: "+cuentaB[i].saldo);
+                }
+            }  
+        }   
     }
 }
