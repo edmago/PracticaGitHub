@@ -54,16 +54,17 @@ public class operacionBancaria {
         String msjs[]  = new String[6];
         String msj;
         System.out.print("\n");
-        String tit = "\n           \033[31mRetiro por Cajero\n";
+        System.out.println("   \033[31m#--------------------------------#");
+        String tit = "   \033[31m|         \033[31mRetiro por Cajero      |\n";
         System.out.format("\033[34m%18s",tit);
         System.out.println("   \033[31m#--------------------------------#");
         msjs[0] = "   |    1.-  50          2.- 100    |";
         msjs[1] = "\n";
-        msjs[2] = "   |    3.- 200          4.- 300    |";
+        msjs[2] = "   \033[31m|    3.- 200          4.- 300    |";
         msjs[3] = "\n";
-        msjs[4] = "   |    5.- 400          6.- 500    |";
+        msjs[4] = "   \033[31m|    5.- 400          6.- 500    |";
         msjs[5] = "\n";
-        System.out.format("\033[31m%35s%35s%35s",msjs[0],msjs[1],msjs[2],msjs[3],msjs[4],msjs[51]);
+        System.out.format("\033[31m%35s%35s%35s%35s%35s%35s",msjs[0],msjs[1],msjs[2],msjs[3],msjs[4],msjs[5]);
         System.out.println("   \033[31m#--------------------------------#");
         System.out.println("\n     Seleccione el Monto a Retirar\n");
     }
